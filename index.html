@@ -5,13 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Roboto Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="styles.css" rel="stylesheet" />
+
     <title>GJ Tiquia</title>
 </head>
 
-<body>
+<body class="body-layout">
     <header>
-        <nav>
-            <ul>
+        <nav class="right-justify">
+            <ul class="link-row">
                 <li><a>Home</a></li>
                 <li><a>Game Dev</a></li>
                 <li><a>Apps</a></li>
@@ -22,12 +31,36 @@
     </header>
     <main>
         <section>
-            <h1>GJ Tiquia</h1>
-            <p>Just a regular guy doing things for fun🔥</p>
+            <div class="flex-column">
+                <h1>GJ Tiquia</h1>
+                <p>Just a regular guy doing things for fun🔥</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Game Dev</h2>
+        </section>
+
+        <section>
+            <h2>Apps</h2>
+        </section>
+
+        <section>
+            <h2>Music</h2>
+        </section>
+
+        <section>
+            <h2>Blog</h2>
         </section>
     </main>
     <footer>
-
+        <div class="right-justify">
+            <ul>
+                <li><a>Email</a></li>
+                <li><a>LinkedIn</a></li>
+                <li><a>GitHub</a></li>
+            </ul>
+        </div>
     </footer>
 </body>
 
