@@ -1,3 +1,12 @@
+:root {
+    --text-color-1: hsl(0, 0%, 90%);
+    --text-color-2: hsl(0, 0%, 80%);
+
+    --surface-1-color: hsl(210, 30%, 10%);
+    --surface-2-color: hsl(212, 52%, 16%);
+    --surface-3-color: hsl(212, 71%, 23%);
+}
+
 * {
     box-sizing: border-box;
 
@@ -7,13 +16,15 @@
     scroll-behavior: smooth;
 
     font-family: 'Roboto', sans-serif;
+    color: var(--text-color-1);
 
-    /* outline: 1px solid red;
-    background-color: rgb(255, 0, 0, 0.05); */
+    /* outline: 1px solid red; */
+    /* background-color: rgb(255, 0, 0, 0.05); */
 }
 
 html {
     height: 100%;
+    background-color: var(--surface-1-color);
 
     /* Change this to test changing rem */
     /* font-size: 20px; */
@@ -25,6 +36,15 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
 }
 
 .right-justify {
@@ -40,7 +60,13 @@ h2 {
 .flex-column {
     display: flex;
     flex-direction: column;
-    align-items: center
+    gap: 10px;
+}
+
+.flex-column-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .body-layout {
@@ -51,9 +77,50 @@ h2 {
     grid-template-rows: auto 1fr auto;
 }
 
-.link-row {
+.header-link-row {
     display: flex;
     list-style-type: none;
     gap: 2.5rem;
     padding: 24px 2.5rem;
+}
+
+.header-link-row > li > a {
+    font-size: 0.8rem;
+    color: var(--text-color-2);
+}
+
+.footer-link-row {
+    display: flex;
+    list-style-type: none;
+    gap: 2.5rem;
+    padding: 15px 1.5rem;
+}
+
+.footer-link-row > li {
+    font-size: 1.5rem;
+}
+
+.centered-content {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-margin {
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.section-margin:first-of-type {
+    margin-top: 10px;
+}
+
+.surface-2-container {
+    background-color: var(--surface-2-color);
+    border-radius: 25px;
+}
+
+.level-1-padding {
+    padding: 1.5rem;
 }

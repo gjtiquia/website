@@ -9,10 +9,10 @@
     <!-- Roboto Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link href="styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
     <title>GJ Tiquia</title>
 </head>
@@ -20,7 +20,7 @@
 <body class="body-layout">
     <header>
         <nav class="right-justify">
-            <ul class="link-row">
+            <ul class="header-link-row">
                 <li><a>Home</a></li>
                 <li><a>Game Dev</a></li>
                 <li><a>Apps</a></li>
@@ -30,35 +30,52 @@
         </nav>
     </header>
     <main>
-        <section>
-            <div class="flex-column">
-                <h1>GJ Tiquia</h1>
-                <p>Just a regular guy doing things for fun🔥</p>
-            </div>
-        </section>
+        <div class="centered-content">
+            <section class="section-margin">
+                <div class="flex-column-centered">
+                    <h1 class="hero-title">GJ Tiquia</h1>
+                    <p class="hero-subtitle">Just a regular guy doing things for fun🔥</p>
+                </div>
+            </section>
 
-        <section>
-            <h2>Game Dev</h2>
-        </section>
+            <section class="section-margin surface-2-container level-1-padding flex-column">
+                <h2>Game Dev</h2>
+            </section>
 
-        <section>
-            <h2>Apps</h2>
-        </section>
+            <section class="section-margin surface-2-container level-1-padding flex-column">
+                <h2>Apps</h2>
+                <div class="center-justify">
+                    <p>Nothing here yet!</p>
+                </div>
+            </section>
 
-        <section>
-            <h2>Music</h2>
-        </section>
+            <section class=" section-margin surface-2-container level-1-padding flex-column">
+                <h2>Music</h2>
+            </section>
 
-        <section>
-            <h2>Blog</h2>
-        </section>
+            <section class="section-margin surface-2-container level-1-padding flex-column">
+                <h2>Blog</h2>
+            </section>
+        </div>
     </main>
     <footer>
         <div class="right-justify">
-            <ul>
-                <li><a>Email</a></li>
-                <li><a>LinkedIn</a></li>
-                <li><a>GitHub</a></li>
+            <ul class="footer-link-row">
+                <li>
+                    <a href="mailto: gjtiquia@gmail.com" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/gjtiquia/" target="_blank">
+                        <i class=" fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/gjtiquia" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
             </ul>
         </div>
     </footer>
