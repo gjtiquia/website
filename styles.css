@@ -69,6 +69,21 @@ h2 {
     align-items: center;
 }
 
+.flex-space-between {
+    justify-content: space-between;
+}
+
+.flex-space-evenly {
+    justify-content: space-evenly;
+}
+
+.grid-row-centered {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    justify-items: center;
+}
+
 .body-layout {
     width: 100%;
     min-height: 100%;
@@ -121,6 +136,32 @@ h2 {
     border-radius: 25px;
 }
 
+.level-1-rounding {
+    border-radius: 25px;
+}
+
+.level-2-rounding {
+    border-radius: 20px;
+}
+
 .level-1-padding {
     padding: 1.5rem;
+}
+
+.level-2-padding {
+    padding: 0.75rem;
+}
+
+.size-fit-parent {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-auto-adjust {
+    text-size-adjust: auto;
+}
+
+#itch-io-badge {
+    padding-left: 10px;
+    padding-right: 10px;
 }
