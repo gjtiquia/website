@@ -161,6 +161,10 @@ h2 {
     text-size-adjust: auto;
 }
 
+.button {
+    width: 9rem;
+}
+
 #itch-io-badge {
     padding-left: 10px;
     padding-right: 10px;
