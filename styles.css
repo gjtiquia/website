@@ -2,6 +2,7 @@
     --text-color-1: hsl(0, 0%, 90%);
     --text-color-2: hsl(0, 0%, 80%);
 
+    --primary-color: hsl(219, 62%, 44%);
     --surface-1-color: hsl(210, 30%, 10%);
     --surface-2-color: hsl(212, 52%, 16%);
     --surface-3-color: hsl(212, 71%, 23%);
@@ -28,6 +29,10 @@ html {
 
     /* Change this to test changing rem */
     /* font-size: 20px; */
+}
+
+a {
+    text-decoration: none;
 }
 
 h1 {
@@ -67,6 +72,25 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.flex-space-between {
+    justify-content: space-between;
+}
+
+.flex-space-evenly {
+    justify-content: space-evenly;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.grid-row-centered {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    justify-items: center;
 }
 
 .body-layout {
@@ -116,11 +140,88 @@ h2 {
     margin-top: 10px;
 }
 
+.primary-container {
+    background-color: var(--primary-color);
+    border-radius: 25px;
+}
+
+.primary-border-container {
+    border: 2.5px solid var(--primary-color);
+    border-radius: 25px;
+}
+
 .surface-2-container {
     background-color: var(--surface-2-color);
     border-radius: 25px;
 }
 
+.level-1-rounding {
+    border-radius: 25px;
+}
+
+.level-2-rounding {
+    border-radius: 20px;
+}
+
 .level-1-padding {
     padding: 1.5rem;
+}
+
+.level-2-padding {
+    padding: 0.75rem;
+}
+
+.size-fit-parent {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.text-auto-adjust {
+    text-size-adjust: auto;
+}
+
+.small-button-width {
+    width: 150px;
+}
+
+.small-button {
+    width: 125px;
+    height: 40px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.fa-small-button {
+    font-size: 2rem;
+}
+
+#itch-io-badge {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#snake-4d-icon-container {
+    max-width: 250px;
+}
+
+@media (max-width: 620px){
+    .header-link-row > li > a {
+        display: none;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .mobile-flex-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #snake-4d-icon-container {
+        max-width: 225px;
+        margin: auto;
+    }
 }

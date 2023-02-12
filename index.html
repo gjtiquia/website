@@ -21,11 +21,11 @@
     <header>
         <nav class="right-justify">
             <ul class="header-link-row">
-                <li><a>Home</a></li>
-                <li><a>Game Dev</a></li>
-                <li><a>Apps</a></li>
-                <li><a>Music</a></li>
-                <li><a>Blog</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#game-dev-section">Game Dev</a></li>
+                <li><a href="/#apps-section">Apps</a></li>
+                <li><a href="/#music-section">Music</a></li>
+                <li><a href="/#blog-section">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -38,23 +38,81 @@
                 </div>
             </section>
 
-            <section class="section-margin surface-2-container level-1-padding flex-column">
+            <section id="game-dev-section" class="section-margin surface-2-container level-1-padding flex-column">
                 <h2>Game Dev</h2>
+                <div class="center-justify flex-space-evenly mobile-flex-column">
+                    <div id="snake-4d-icon-container" class="level-2-padding">
+                        <img class="size-fit-parent level-2-rounding" alt="Snake 4D Logo"
+                            src="./images/Snake4DLogo_v5_512.png">
+                    </div>
+
+                    <div class="level-2-padding flex-column-centered flex-space-evenly">
+                        <h1>Snake 4D</h1>
+                        <div class="flex-column-centered">
+                            <a target="_blank"
+                                href="https://play.google.com/store/apps/details?id=com.GJTiquia.Snake4D">
+                                <img class="small-button-width" alt="Google Play Store"
+                                    src="images/google-play-badge.png">
+                            </a>
+                            <a target="_blank" href="https://gjthegamedev.itch.io/snake-4d">
+                                <img id="itch-io-badge" class="small-button-width" alt="Itch.io"
+                                    src="images/itchio-badge.png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="level-2-padding flex-column-centered flex-space-evenly">
+                        <div>
+                            <a href="./gamedev">
+                                <div class="flex-column-centered flex-space-evenly primary-container small-button">
+                                    <p>All Games</p>
+                                </div>
+                            </a>
+
+                            <a href="./gamedev/portfolio">
+                                <div
+                                    class="flex-column-centered flex-space-evenly primary-border-container small-button">
+                                    <p>Portfolio</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="center-justify flex-space-evenly small-button-width">
+                            <div>
+                                <a href="https://www.youtube.com/@gjthegamedev" target="_blank">
+                                    <i class="fab fa-youtube fa-small-button"></i>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="https://www.instagram.com/gjthegamedev/" target="_blank">
+                                    <i class="fab fa-instagram fa-small-button"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section class="section-margin surface-2-container level-1-padding flex-column">
+            <section id="apps-section" class="section-margin surface-2-container level-1-padding flex-column">
                 <h2>Apps</h2>
                 <div class="center-justify">
                     <p>Nothing here yet!</p>
                 </div>
             </section>
 
-            <section class=" section-margin surface-2-container level-1-padding flex-column">
+            <section id="music-section" class=" section-margin surface-2-container level-1-padding flex-column">
                 <h2>Music</h2>
+                <div class="center-justify">
+                    <p>Nothing here yet!</p>
+                </div>
             </section>
 
-            <section class="section-margin surface-2-container level-1-padding flex-column">
+            <section id="blog-section" class="section-margin surface-2-container level-1-padding flex-column">
                 <h2>Blog</h2>
+                <div class="center-justify">
+                    <p>Nothing here yet!</p>
+                </div>
             </section>
         </div>
     </main>
