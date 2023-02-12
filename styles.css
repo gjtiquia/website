@@ -31,6 +31,10 @@ html {
     /* font-size: 20px; */
 }
 
+a {
+    text-decoration: none;
+}
+
 h1 {
     font-size: 2rem;
 }
@@ -105,7 +109,6 @@ h2 {
 }
 
 .header-link-row > li > a {
-    text-decoration: none;
     font-size: 0.8rem;
     color: var(--text-color-2);
 }
