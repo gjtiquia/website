@@ -206,6 +206,10 @@ h2 {
 }
 
 @media (max-width: 620px){
+    .header-link-row > li > a {
+        display: none;
+    }
+
     .hero-subtitle {
         font-size: 1rem;
     }
