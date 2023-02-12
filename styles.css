@@ -2,6 +2,7 @@
     --text-color-1: hsl(0, 0%, 90%);
     --text-color-2: hsl(0, 0%, 80%);
 
+    --primary-color: hsl(219, 62%, 44%);
     --surface-1-color: hsl(210, 30%, 10%);
     --surface-2-color: hsl(212, 52%, 16%);
     --surface-3-color: hsl(212, 71%, 23%);
@@ -77,6 +78,10 @@ h2 {
     justify-content: space-evenly;
 }
 
+.width-100 {
+    width: 100%;
+}
+
 .grid-row-centered {
     display: grid;
     grid-auto-columns: minmax(0, 1fr);
@@ -100,6 +105,7 @@ h2 {
 }
 
 .header-link-row > li > a {
+    text-decoration: none;
     font-size: 0.8rem;
     color: var(--text-color-2);
 }
@@ -131,6 +137,16 @@ h2 {
     margin-top: 10px;
 }
 
+.primary-container {
+    background-color: var(--primary-color);
+    border-radius: 25px;
+}
+
+.primary-border-container {
+    border: 2.5px solid var(--primary-color);
+    border-radius: 25px;
+}
+
 .surface-2-container {
     background-color: var(--surface-2-color);
     border-radius: 25px;
@@ -153,6 +169,7 @@ h2 {
 }
 
 .size-fit-parent {
+    display: block;
     max-width: 100%;
     height: auto;
 }
@@ -161,11 +178,43 @@ h2 {
     text-size-adjust: auto;
 }
 
-.button {
-    width: 9rem;
+.small-button-width {
+    width: 150px;
+}
+
+.small-button {
+    width: 125px;
+    height: 40px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.fa-small-button {
+    font-size: 2rem;
 }
 
 #itch-io-badge {
     padding-left: 10px;
     padding-right: 10px;
+}
+
+#snake-4d-icon-container {
+    max-width: 250px;
+}
+
+@media (max-width: 620px){
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .mobile-flex-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #snake-4d-icon-container {
+        max-width: 225px;
+        margin: auto;
+    }
 }
