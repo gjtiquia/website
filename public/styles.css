@@ -16,7 +16,7 @@
 
     scroll-behavior: smooth;
 
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     color: var(--text-color-1);
 
     /* outline: 1px solid red; */
@@ -205,7 +205,7 @@ h2 {
     max-width: 250px;
 }
 
-@media (max-width: 620px){
+@media (max-width: 620px) {
     .header-link-row > li > a {
         display: none;
     }
