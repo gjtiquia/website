@@ -1,5 +1,6 @@
 "use strict";
 // showdown is from the Showdown CDN script
+// eslint-disable-next-line no-undef
 const converter = new showdown.Converter();
 const text = "# hello, markdown!";
 const html = converter.makeHtml(text);
