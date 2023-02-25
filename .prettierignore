@@ -1,2 +1,5 @@
 # Ignore all HTML files:
 *.html
+
+# Ignore all JavaScript files as we are compiling from TypeScript anyways
+*.js

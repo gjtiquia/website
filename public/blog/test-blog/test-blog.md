@@ -1,3 +1,8 @@
+---
+title: Some title for a test blog
+description: Some description for the test blog
+---
+
 # Some title for a test blog
 
 ## Introduction

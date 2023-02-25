@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@types/showdown": "^2.0.0",
+        "parse-md": "^3.0.3",
         "showdown": "^2.1.0"
     }
 }
