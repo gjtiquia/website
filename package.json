@@ -17,7 +17,9 @@
     },
     "dependencies": {
         "@types/showdown": "^2.0.0",
+        "node-html-parser": "^6.1.5",
         "parse-md": "^3.0.3",
-        "showdown": "^2.1.0"
+        "showdown": "^2.1.0",
+        "slugify": "^1.6.5"
     }
 }
