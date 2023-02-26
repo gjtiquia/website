@@ -24,6 +24,8 @@
         "quotes": ["error", "double"],
         "semi": ["error", "always"],
 
+        "no-useless-escape":"off",
+
         // Possible Problems
         "one-var-declaration-per-line":"error",
 

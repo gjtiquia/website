@@ -6,30 +6,49 @@ import slugify from "slugify";
 
 buildHtmlFromGitHubRepo();
 
+async function recursivelyGetMdFilesFromGitHubRepo(owner: string, repo: string, path: string, fileContentsList: string[]) {
+    const directoryApiResponse: GitHubAPIResponse[] = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`)
+        .then(d => {
+            if (d.status != 200) {
+                // Require authentication token to exceed 60 requests per hour per IP to up to 5,000 requests per hour user
+                console.error(`buildHtml.recursivelyGetMdFilesFromGitHubRepo(): status code: ${d.status}! Returning empty array...`);
+                return [];
+            }
+
+            return d.json();
+        });
+
+    // Traditional for loop is used instead of forEach because need to await each iteration
+    for (const apiResponse of directoryApiResponse) {
+        if (apiResponse.type == "dir") {
+            await recursivelyGetMdFilesFromGitHubRepo(owner, repo, apiResponse.path, fileContentsList);
+        }
+
+        else if (apiResponse.type == "file") {
+            // Ensure it is a *.md file
+            const regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.md)$");
+            if (!regex.test(apiResponse.name)) continue;
+
+            const contents = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/blobs/${apiResponse.sha}`)
+                .then((d) => d.json())
+                .then((d) => Buffer.from(d.content, "base64").toString());
+
+            fileContentsList.push(contents);
+        }
+    }
+}
+
 async function getMdFilesFromGitHubRepo(owner: string, repo: string): Promise<string[]> {
-    // TODO : Now just gets the root directory, should get recursively
     // TODO : Should filter and only get *.md files
 
-    const rootDirectoryApiResponse: GitHubAPIResponse[] = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`)
-        .then((d) => d.json());
-
     const fileContentsList: string[] = [];
-
-    // Use traditional for instead of foreach because need to await each iteration
-    for (const apiFileResponse of rootDirectoryApiResponse) {
-        const contents = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/blobs/${apiFileResponse.sha}`)
-            .then((d) => d.json())
-            .then((d) => Buffer.from(d.content, "base64").toString());
-
-        fileContentsList.push(contents);
-    }
+    await recursivelyGetMdFilesFromGitHubRepo(owner, repo, "", fileContentsList);
 
     return fileContentsList;
 }
 
 async function buildHtmlFromGitHubRepo () {
     const fileContentsList = await getMdFilesFromGitHubRepo("gjtiquia", "blog");
-    console.log(fileContentsList);
     buildHtmlFromFileList(fileContentsList);
 }
 
