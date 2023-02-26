@@ -33,19 +33,6 @@ async function buildHtmlFromGitHubRepo () {
     buildHtmlFromFileList(fileContentsList);
 }
 
-function buildHtmlFromDirectory () {
-    const BLOG_DIRECTORY = "blog-repo";
-
-    const fileContentsList: string[] = [];
-
-    fs.readdirSync(BLOG_DIRECTORY).forEach((file) => {
-        const markdownFile = fs.readFileSync(`${BLOG_DIRECTORY}/${file}`, {encoding: "utf8"});
-        fileContentsList.push(markdownFile);
-    });
-
-    buildHtmlFromFileList(fileContentsList);
-}
-
 function buildHtmlFromFileList (markdownFileContentList: Array<string>) {
     const HTML_TEMPLATE_PATH = "src/blog-template.html";
     const OUTPUT_DIRECTORY = "public/blog";

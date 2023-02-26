@@ -1,0 +1,2 @@
+# Ignore JS because they are compiled from TypeScript anyways
+*.js
