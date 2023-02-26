@@ -3,29 +3,45 @@ import showdown from "showdown";
 import parseMD from "parse-md";
 import { parse as parseHTML } from "node-html-parser";
 import slugify from "slugify";
-getGit("gjtiquia", "blog");
-async function getGit(owner, repo) {
+// getGit("gjtiquia", "blog");
+// buildHtmlFromDirectory();
+buildHtmlFromGitHubRepo();
+async function getMdFilesFromGitHubRepo(owner, repo) {
     // TODO : Now just gets the root directory, should get recursively
     // TODO : Should filter and only get *.md files
     const root = (await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`).then((d) => d.json()));
-    root.forEach(async (apiFileResponse) => {
+    const fileContentsList = [];
+    // Use traditional for instead of foreach because need to await each iteration
+    for (const apiFileResponse of root) {
         const contents = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/blobs/${apiFileResponse.sha}`)
             .then((d) => d.json())
             .then((d) => Buffer.from(d.content, "base64").toString());
-        console.log(contents);
-    });
+        fileContentsList.push(contents);
+    }
+    return fileContentsList;
+}
+async function buildHtmlFromGitHubRepo() {
+    const fileContentsList = await getMdFilesFromGitHubRepo("gjtiquia", "blog");
+    console.log(fileContentsList);
+    buildHtmlFromFileList(fileContentsList);
 }
 function buildHtmlFromDirectory() {
-    const HTML_TEMPLATE_PATH = "src/blog-template.html";
     const BLOG_DIRECTORY = "blog-repo";
-    const OUTPUT_DIRECTORY = "public/blog";
-    fs.rmSync(OUTPUT_DIRECTORY, { recursive: true, force: true });
-    fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
+    const fileContentsList = [];
     fs.readdirSync(BLOG_DIRECTORY).forEach((file) => {
-        console.log("Converting", file, "into HTML...");
         const markdownFile = fs.readFileSync(BLOG_DIRECTORY + "/" + file, {
             encoding: "utf8"
         });
+        fileContentsList.push(markdownFile);
+    });
+    buildHtmlFromFileList(fileContentsList);
+}
+function buildHtmlFromFileList(markdownFileContentList) {
+    const HTML_TEMPLATE_PATH = "src/blog-template.html";
+    const OUTPUT_DIRECTORY = "public/blog";
+    fs.rmSync(OUTPUT_DIRECTORY, { recursive: true, force: true });
+    fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
+    markdownFileContentList.forEach((markdownFile) => {
         buildHtml(markdownFile, HTML_TEMPLATE_PATH, OUTPUT_DIRECTORY);
     });
 }
