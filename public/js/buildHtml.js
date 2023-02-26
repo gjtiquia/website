@@ -3,16 +3,15 @@ import showdown from "showdown";
 import parseMD from "parse-md";
 import { parse as parseHTML } from "node-html-parser";
 import slugify from "slugify";
-// getGit("gjtiquia", "blog");
-// buildHtmlFromDirectory();
 buildHtmlFromGitHubRepo();
 async function getMdFilesFromGitHubRepo(owner, repo) {
     // TODO : Now just gets the root directory, should get recursively
     // TODO : Should filter and only get *.md files
-    const root = (await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`).then((d) => d.json()));
+    const rootDirectoryApiResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`)
+        .then((d) => d.json());
     const fileContentsList = [];
     // Use traditional for instead of foreach because need to await each iteration
-    for (const apiFileResponse of root) {
+    for (const apiFileResponse of rootDirectoryApiResponse) {
         const contents = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/blobs/${apiFileResponse.sha}`)
             .then((d) => d.json())
             .then((d) => Buffer.from(d.content, "base64").toString());
@@ -29,9 +28,7 @@ function buildHtmlFromDirectory() {
     const BLOG_DIRECTORY = "blog-repo";
     const fileContentsList = [];
     fs.readdirSync(BLOG_DIRECTORY).forEach((file) => {
-        const markdownFile = fs.readFileSync(BLOG_DIRECTORY + "/" + file, {
-            encoding: "utf8"
-        });
+        const markdownFile = fs.readFileSync(`${BLOG_DIRECTORY}/${file}`, { encoding: "utf8" });
         fileContentsList.push(markdownFile);
     });
     buildHtmlFromFileList(fileContentsList);
@@ -68,14 +65,12 @@ function buildHtml(markdownFileContents, htmlTemplatePath, outputDirectory) {
         container.innerHTML = markdownContentHtml;
     else
         console.error("buildHtml: No element with id 'blog-contents-container'!");
-    const slugTitle = slugify(markdownMetadata.title, {
-        lower: true
-    });
+    const slugTitle = slugify(markdownMetadata.title, { lower: true });
     const dir = `${outputDirectory}/${slugTitle}`;
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
     fs.writeFileSync(`${dir}/index.html`, htmlObject.toString(), {
-        flag: "wx" // flag to create if doesnt exist
+        flag: "wx", // flag to create if doesnt exist
     });
 }
