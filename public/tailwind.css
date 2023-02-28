@@ -1024,6 +1024,10 @@ video {
   --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
 }
 
+.m-8 {
+  margin: 2rem;
+}
+
 .mt-40 {
   margin-top: 10rem;
 }
@@ -1163,4 +1167,10 @@ video {
 .hover\:text-slate-300:hover {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
+}
+
+@media (min-width: 640px) {
+  .sm\:max-w-prose {
+    max-width: 65ch;
+  }
 }
