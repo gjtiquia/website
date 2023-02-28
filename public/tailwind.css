@@ -1082,9 +1082,9 @@ video {
   padding: 3rem;
 }
 
-.px-14 {
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .px-5 {
@@ -1148,6 +1148,16 @@ video {
 .hover\:bg-surface-700:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(212 71% 23% / var(--tw-bg-opacity));
+}
+
+.hover\:px-12:hover {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.hover\:py-3:hover {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .hover\:text-slate-300:hover {
