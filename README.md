@@ -6,9 +6,18 @@ Built with HTML, TailwindCSS and TypeScript.
 
 ## Commands
 
-- `npm install`: Main dev server. Runs everything you need. 
-- `npm run dev`: Compiles and watches file changes for TypeScript and TailwindCSS.
-- `npm run build`: Compile TypeScript and TailwindCSS for production.
+Install all the dependencies for the project with the following command.
+```
+npm install
+```
+Compile and watche file changes for TypeScript and TailwindCSS with the following command.
+```
+npm run dev
+```
+Compile TypeScript and TailwindCSS for production with the following command.
+```
+npm run build
+```
 
 ## Dependencies:
 
