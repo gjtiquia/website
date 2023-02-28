@@ -3,7 +3,8 @@ import showdown from "showdown";
 import parseMD from "parse-md";
 import { parse as parseHTML } from "node-html-parser";
 import slugify from "slugify";
-buildHtmlFromGitHubRepo();
+// buildHtmlFromGitHubRepo();
+console.log("TypeScript is working!");
 async function recursivelyGetMdFilesFromGitHubRepo(owner, repo, path, fileContentsList) {
     const directoryApiResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`)
         .then(d => {
