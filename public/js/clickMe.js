@@ -23,6 +23,6 @@ function setCountText(text) {
         console.error("script.setCountText(): countElement null!");
 }
 function onButtonClick() {
-    setCountText((getCountNumber() + 2).toString());
+    setCountText((getCountNumber() + 1).toString());
 }
 init();
