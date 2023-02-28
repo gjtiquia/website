@@ -1,19 +1,29 @@
-# Personal Website of GJTiquia
+# GJTiquia.com
 
-Currently hosted at https://gjtiquia.com
+Personal website of GJ Tiquia. Currently hosted at https://gjtiquia.com
 
-Built with HTML, CSS and Vanilla JavaScript compiled from TypeScript.
+Built with HTML, TailwindCSS and TypeScript.
 
-Dependencies:
+## Commands
 
--   Prettier  
-    Used to enforce consistent code style during development.
+- `npm install`: Main dev server. Runs everything you need. 
+- `npm run dev`: Compiles and watches file changes for TypeScript and TailwindCSS.
+- `npm run build`: Compile TypeScript and TailwindCSS for production.
+
+## Dependencies:
+
+-   TypeScript  
+    Used in favor of JavaScript for development.
+
+-   TailwindCSS  
+    Used as a Utility-first CSS framework for fast development of custom UI.
 
 -   ESLint  
-    Used to find and fix problems in TypeScript code during development.
+    Used to enforce code style, find and fix problems in TypeScript code during development.
 
 -   Showdown  
     Used to parse markdown files into HTML during build time.
 
 -   parseMD  
     Used to parse metadata from the YAML header in a markdown file during build time.
+

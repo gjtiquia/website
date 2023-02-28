@@ -1,10 +1,11 @@
 import fs from "fs";
 import showdown from "showdown";
 import parseMD from "parse-md";
-import {parse as parseHTML} from "node-html-parser";
+import { parse as parseHTML } from "node-html-parser";
 import slugify from "slugify";
 
-buildHtmlFromGitHubRepo();
+// buildHtmlFromGitHubRepo();
+console.log("TypeScript is working!");
 
 async function recursivelyGetMdFilesFromGitHubRepo(owner: string, repo: string, path: string, fileContentsList: string[]) {
     const directoryApiResponse: GitHubAPIResponse[] = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`)
@@ -47,24 +48,24 @@ async function getMdFilesFromGitHubRepo(owner: string, repo: string): Promise<st
     return fileContentsList;
 }
 
-async function buildHtmlFromGitHubRepo () {
+async function buildHtmlFromGitHubRepo() {
     const fileContentsList = await getMdFilesFromGitHubRepo("gjtiquia", "blog");
     buildHtmlFromFileList(fileContentsList);
 }
 
-function buildHtmlFromFileList (markdownFileContentList: Array<string>) {
+function buildHtmlFromFileList(markdownFileContentList: Array<string>) {
     const HTML_TEMPLATE_PATH = "src/blog-template.html";
     const OUTPUT_DIRECTORY = "public/blog";
 
-    fs.rmSync(OUTPUT_DIRECTORY, {recursive: true, force: true});
-    fs.mkdirSync(OUTPUT_DIRECTORY, {recursive: true});
+    fs.rmSync(OUTPUT_DIRECTORY, { recursive: true, force: true });
+    fs.mkdirSync(OUTPUT_DIRECTORY, { recursive: true });
 
     markdownFileContentList.forEach((markdownFile) => {
         buildHtml(markdownFile, HTML_TEMPLATE_PATH, OUTPUT_DIRECTORY);
     });
 }
 
-function buildHtml (
+function buildHtml(
     markdownFileContents: string,
     htmlTemplatePath: string,
     outputDirectory: string,
@@ -91,11 +92,11 @@ function buildHtml (
     if (container != null) container.innerHTML = markdownContentHtml;
     else console.error("buildHtml: No element with id 'blog-contents-container'!");
 
-    const slugTitle = slugify(markdownMetadata.title, {lower: true});
+    const slugTitle = slugify(markdownMetadata.title, { lower: true });
 
     const dir = `${outputDirectory}/${slugTitle}`;
     if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, {recursive: true});
+        fs.mkdirSync(dir, { recursive: true });
     }
 
     fs.writeFileSync(`${dir}/index.html`, htmlObject.toString(), {
