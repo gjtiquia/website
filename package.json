@@ -2,7 +2,7 @@
     "type": "module",
     "scripts": {
         "build": "tsc && tailwindcss -i ./src/tailwindcss.css -o ./public/tailwindcss.css",
-        "dev": "tsc -w && tailwindcss -i ./src/tailwindcss.css -o ./public/tailwindcss.css --watch",
+        "dev": "concurrently --kill-others \"npx tsc -w\" \"npx tailwindcss -i ./src/tailwind.css -o ./public/tailwind.css --watch\"",
         "format": "eslint --fix ."
     },
     "devDependencies": {
@@ -10,6 +10,7 @@
         "@types/showdown": "^2.0.0",
         "@typescript-eslint/eslint-plugin": "^5.53.0",
         "@typescript-eslint/parser": "^5.53.0",
+        "concurrently": "^7.6.0",
         "eslint": "^8.35.0",
         "node-html-parser": "^6.1.5",
         "parse-md": "^3.0.3",
