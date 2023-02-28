@@ -6,15 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="../../tailwind.css" rel="stylesheet">
+
     <title>Click Me</title>
 </head>
 
-<body>
-    <h1>Click Me!</h1>
-    <p id="count">0</p>
-    <button id="button">Click</button>
+<body class="bg-surface-900">
+    <div class="mt-40 flex flex-col justify-center items-center gap-10">
+        <h1 class="text-slate-50 font-bold text-4xl">
+            Click Me
+        </h1>
 
-    <script src="/public/js/clickMe.js"></script>
+        <p id="count" class="text-slate-50 text-8xl">
+            0
+        </p>
+
+        <button id="button"
+            class="text-slate-50 bg-surface-800 hover:bg-primary px-10 hover:px-12 py-2 hover:py-3 rounded-xl transition-all duration-150">
+            Click
+        </button>
+    </div>
+
+    <script src="../../js/clickMe.js"></script>
 </body>
 
 </html>
