@@ -1038,19 +1038,14 @@ video {
   margin-right: auto;
 }
 
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .mb-4 {
@@ -1063,10 +1058,6 @@ video {
 
 .mt-40 {
   margin-top: 10rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
 }
 
 .flex {
@@ -1101,12 +1092,12 @@ video {
   width: 14rem;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-9\/12 {
   width: 75%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-min {
@@ -1158,10 +1149,6 @@ video {
   gap: 1rem;
 }
 
-.gap-5 {
-  gap: 1.25rem;
-}
-
 .scroll-smooth {
   scroll-behavior: smooth;
 }
@@ -1186,14 +1173,6 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded-md {
-  border-radius: 0.375rem;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .border-2 {
   border-width: 2px;
 }
@@ -1201,6 +1180,16 @@ video {
 .border-primary {
   --tw-border-opacity: 1;
   border-color: hsl(219 62% 44% / var(--tw-border-opacity));
+}
+
+.bg-gamedev-surface-800 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(352 52% 16% / var(--tw-bg-opacity));
+}
+
+.bg-gamedev-surface-900 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(350 30% 10% / var(--tw-bg-opacity));
 }
 
 .bg-primary {
@@ -1222,26 +1211,6 @@ video {
   background-color: hsl(210 30% 10% / var(--tw-bg-opacity));
 }
 
-.bg-gamedev-surface-900 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(350 30% 10% / var(--tw-bg-opacity));
-}
-
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-
-.bg-slate-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
-}
-
-.bg-gamedev-surface-800 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(352 52% 16% / var(--tw-bg-opacity));
-}
-
 .p-12 {
   padding: 3rem;
 }
@@ -1250,16 +1219,12 @@ video {
   padding: 0.75rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
-}
-
-.p-5 {
-  padding: 1.25rem;
-}
-
 .p-4 {
   padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
 }
 
 .px-10 {
@@ -1341,24 +1306,14 @@ video {
   line-height: 1.5rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -1380,11 +1335,6 @@ video {
   color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1399,6 +1349,11 @@ video {
   transition-duration: 150ms;
 }
 
+.hover\:bg-gamedev-surface-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(352 71% 23% / var(--tw-bg-opacity));
+}
+
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(219 62% 44% / var(--tw-bg-opacity));
@@ -1411,11 +1366,6 @@ video {
 .hover\:bg-surface-700:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(212 71% 23% / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gamedev-surface-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: hsl(352 71% 23% / var(--tw-bg-opacity));
 }
 
 .hover\:px-12:hover {
@@ -1445,6 +1395,11 @@ video {
 
   .sm\:max-w-prose {
     max-width: 65ch;
+  }
+
+  .sm\:max-w-min {
+    max-width: -moz-min-content;
+    max-width: min-content;
   }
 
   .sm\:flex-row {
