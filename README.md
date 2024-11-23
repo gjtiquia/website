@@ -13,6 +13,7 @@ built with Astro, using the Deno runtime for fun
 
 ## commands
 
+`deno install --allow-scripts`: download all dependencies
 `deno task`: see available tasks
 
 ## Astro Starter Kit: Basics
