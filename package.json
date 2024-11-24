@@ -1,5 +1,4 @@
 {
-  "name": "",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,8 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/tailwind": "^5.1.2",
     "astro": "^4.16.13",
     "@astrojs/check": "^0.9.4",
+    "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2"
   }
 }
