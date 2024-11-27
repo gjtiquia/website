@@ -1,29 +1,41 @@
 ---
 import Card from "../components/Card.astro";
+import GitHubLogo from "../components/GitHubLogo.astro";
+import LinkedInLogo from "../components/LinkedInLogo.astro";
+import TwitterLogo from "../components/TwitterLogo.astro";
 import Layout from "../layouts/Layout.astro";
+
+// TODO : github twitter linkedin
+// TODO : why are you here? portfolio / garden / something cool
+// TODO : add QR code at the bottom (perhaps a text-based QR code?~)
 ---
 
 <Layout title="GJ Tiquia">
-	<main>
-		<p class="text-white">hi! im</p>
-		<h1 class="text-white text-3xl">GJ Tiquia</h1><p>👋</p>
-		<p class="text-white">just a regular guy doing things for fun🔥</p>
+	<main class="p-2">
+		<section></section>
 
-		<a href="https://twitter.com" class="text-white">linkedin</a>
-		<a href="https://twitter.com" class="text-white">github</a>
-		<a href="https://twitter.com" class="text-white">twitter</a>
-		<a href="https://twitter.com" class="text-white">instagram</a>
-		<a href="https://twitter.com" class="text-white">youtube</a>
+		<section class="flex flex-col items-center gap-2 pt-2">
+			<div class="w-fit flex flex-col items-center relative pb-2">
+				<p class="text-white absolute left-0">hey there! im</p>
+				<h1 class="text-white text-5xl font-bold pt-7 px-12">
+					GJ Tiquia
+				</h1>
+				<p class="absolute right-0 bottom-0">👋👋</p>
+			</div>
 
-		<h2 class="text-white">why are you here?</h2>
-		<ul>
-			<li><a href="/portfolio" class="text-white">portfolio</a></li>
-			<li><a href="/garden" class="text-white">garden</a></li>
-			<li>
-				<a href="/apps" class="text-white"
-					>cuz you said u hv something cool to show me?</a
-				>
-			</li>
-		</ul>
+			<p class="text-white pb-2">
+				just a regular guy doing things for fun🔥
+			</p>
+
+			<ul class="flex gap-4">
+				<li><TwitterLogo href="https://x.com/gjtiquia" /></li>
+				<li><GitHubLogo href="https://github.com/gjtiquia" /></li>
+				<li>
+					<LinkedInLogo
+						href="https://www.linkedin.com/in/gjtiquia/"
+					/>
+				</li>
+			</ul>
+		</section>
 	</main>
 </Layout>
