@@ -6,37 +6,42 @@ import TwitterLogo from "../components/TwitterLogo.astro";
 import Layout from "../layouts/Layout.astro";
 
 // TODO : github twitter linkedin
-// TODO : why are you here? portfolio / garden / something cool
-// TODO : add QR code at the bottom (perhaps a text-based QR code?~)
+// TODO : why are you here? portfolio (can do much much later) / garden / something cool
+// TODO : add QR code at the bottom (perhaps a text-based QR code?~) (maybe a QR code at the bottom of each page? first hardcode, later self gen during build?)
+// TODO : refactor header section into its own component
 ---
 
 <Layout title="GJ Tiquia">
 	<main class="p-2">
 		<section class="flex justify-between">
-			<a href="/" class="text-stone-100 font-bold">GJ Tiquia</a>
+			<a
+				href="/"
+				class="text-stone-100 font-bold hover:underline active:underline"
+				>GJ Tiquia</a
+			>
 			<ul class="flex gap-2">
+				<!-- <li>
+					<a
+						href="/garden"
+						class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline"
+					>
+						Garden
+					</a>
+				</li> -->
 				<li>
 					<a
 						href="/garden"
-						class="text-stone-400 hover:text-stone-300 active:text-stone-200"
+						class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline"
 					>
 						Garden
 					</a>
 				</li>
 				<li>
 					<a
-						href="/garden"
-						class="text-stone-400 hover:text-stone-300 active:text-stone-200"
+						href="/apps"
+						class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline"
 					>
-						Garden
-					</a>
-				</li>
-				<li>
-					<a
-						href="/garden"
-						class="text-stone-400 hover:text-stone-300 active:text-stone-200"
-					>
-						Garden
+						Apps
 					</a>
 				</li>
 			</ul>
