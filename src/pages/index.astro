@@ -6,8 +6,6 @@ import TwitterLogo from "../components/TwitterLogo.astro";
 import Layout from "../layouts/Layout.astro";
 import qrcode from "../assets/gjtiquia_dot_com.png";
 
-// TODO : styling for BOTH mobile and desktop
-// TODO : add QR code at the bottom (perhaps a text-based QR code?~) (maybe a QR code at the bottom of each page? first hardcode, later self gen during build?)
 // TODO : refactor header section into its own component
 // TODO : portfolio (can do much much later)
 /* portfolio
@@ -32,34 +30,34 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 ---
 
 <Layout title="GJ Tiquia">
-	<main class="py-2 px-4 flex flex-col items-center">
-		<section class="w-full flex justify-between">
-			<a
-				href="/"
-				class="text-stone-100 font-bold hover:underline active:underline"
-				>GJ Tiquia</a
-			>
-			<ul class="flex gap-2">
-				<li>
-					<a
-						href="/garden"
-						class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline"
-					>
-						garden
-					</a>
-				</li>
-				<li>
-					<a
-						href="/apps"
-						class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline"
-					>
-						apps
-					</a>
-				</li>
-			</ul>
-		</section>
+	<section class="pt-2 pb-4 px-4 w-full flex justify-between">
+		<a
+			href="/"
+			class="text-stone-100 font-bold hover:underline active:underline"
+			>GJ Tiquia</a
+		>
+		<ul class="flex gap-2">
+			<li>
+				<a
+					href="/garden"
+					class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline transition-all"
+				>
+					garden
+				</a>
+			</li>
+			<li>
+				<a
+					href="/apps"
+					class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline transition-all"
+				>
+					apps
+				</a>
+			</li>
+		</ul>
+	</section>
 
-		<section class="w-full flex flex-col items-center gap-2 pt-2 pb-4">
+	<main class="py-2 px-4 flex flex-col items-center gap-6">
+		<section class="w-full flex flex-col items-center gap-2">
 			<div class="w-fit flex flex-col items-center relative pb-2">
 				<p class="text-stone-300 absolute left-0">hey there! im</p>
 				<h1 class="text-stone-100 text-5xl font-bold pt-7 px-12">
@@ -73,13 +71,9 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 			</p>
 
 			<ul class="flex gap-4">
-				<li><TwitterLogo href="https://x.com/gjtiquia" /></li>
-				<li><GitHubLogo href="https://github.com/gjtiquia" /></li>
-				<li>
-					<LinkedInLogo
-						href="https://www.linkedin.com/in/gjtiquia/"
-					/>
-				</li>
+				<li><TwitterLogo /></li>
+				<li><GitHubLogo /></li>
+				<li><LinkedInLogo /></li>
 			</ul>
 		</section>
 
@@ -91,8 +85,9 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 			<div
 				class="w-full max-w-xs sm:max-w-full flex flex-col sm:grid sm:grid-cols-2 gap-6"
 			>
-				<div
-					class="bg-stone-800 flex flex-col gap-2 items-center rounded-lg p-4"
+				<a
+					href="/garden"
+					class="bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
 				>
 					<h3 class="text-stone-300 font-bold text-xl">garden</h3>
 					<p class="text-justify text-stone-400">
@@ -100,23 +95,46 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 						things like games🎮, apps, random code snippets,
 						music🎶, writings, my blog✏
 					</p>
-				</div>
+				</a>
 
-				<div
-					class="bg-stone-800 flex flex-col gap-2 items-center rounded-lg p-4"
+				<a
+					href="/apps"
+					class="bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
 				>
 					<h3 class="text-stone-300 font-bold text-xl">apps</h3>
 					<p class="text-justify text-stone-400">
 						if i wanted to show u something cool, this is probably
 						where i want u to click lol😂
 					</p>
-				</div>
+				</a>
 			</div>
 		</section>
 
-		<section>
-			<!-- //TODO resize!  -->
-			<Image src={qrcode} alt="QR Code for GJTiquia.com" />
+		<section
+			class="bg-stone-900 max-w-sm flex flex-col items-center gap-4 px-8 py-4 rounded-lg"
+		>
+			<p class="text-stone-300">scan for the link to this page 🔍</p>
+			<Image
+				class="rounded-lg"
+				src={qrcode}
+				alt="QR Code for GJTiquia.com"
+			/>
+			<a href="/" class="text-stone-500 hover:underline active:underline"
+				>gjtiquia.com</a
+			>
 		</section>
 	</main>
+
+	<section class="pt-4 pb-2 px-4 w-full flex justify-center">
+		<a
+			href="/"
+			class="text-stone-100 font-bold hover:underline active:underline"
+			>GJ Tiquia</a
+		>
+		<ul class="absolute right-2 flex gap-2">
+			<li><TwitterLogo /></li>
+			<li><GitHubLogo /></li>
+			<li><LinkedInLogo /></li>
+		</ul>
+	</section>
 </Layout>
