@@ -1,9 +1,10 @@
 ---
-import Card from "../components/Card.astro";
+import { Image } from "astro:assets";
 import GitHubLogo from "../components/GitHubLogo.astro";
 import LinkedInLogo from "../components/LinkedInLogo.astro";
 import TwitterLogo from "../components/TwitterLogo.astro";
 import Layout from "../layouts/Layout.astro";
+import qrcode from "../assets/gjtiquia_dot_com.png";
 
 // TODO : styling for BOTH mobile and desktop
 // TODO : add QR code at the bottom (perhaps a text-based QR code?~) (maybe a QR code at the bottom of each page? first hardcode, later self gen during build?)
@@ -17,6 +18,16 @@ import Layout from "../layouts/Layout.astro";
 - educational background (hku, mech, cs, drone, ai)
 - volunteer (game dev happy hour, hkugmg, worship team) 
 - hobbies (music, gaming, basketball)
+*/
+
+/*
+portfolio = career oriented, professional development
+garden = organized 
+apps = quick access to stuff i use often haha
+*/
+
+/*
+garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently optimizes images automatically!
 */
 ---
 
@@ -73,18 +84,21 @@ import Layout from "../layouts/Layout.astro";
 		</section>
 
 		<section
-			class="bg-stone-900 w-full max-w-2xl flex flex-col items-center gap-4 p-4 rounded-lg"
+			class="bg-stone-900 w-fit sm:w-full max-w-2xl flex flex-col items-center gap-4 px-8 pt-4 pb-6 rounded-lg"
 		>
 			<h2 class="text-stone-300">what are you doing here?</h2>
 
-			<div class="w-full flex flex-col sm:grid sm:grid-cols-2 gap-4">
+			<div
+				class="w-full max-w-xs sm:max-w-full flex flex-col sm:grid sm:grid-cols-2 gap-6"
+			>
 				<div
 					class="bg-stone-800 flex flex-col gap-2 items-center rounded-lg p-4"
 				>
 					<h3 class="text-stone-300 font-bold text-xl">garden</h3>
 					<p class="text-justify text-stone-400">
 						my creative garden🌷 stuff i made over the years📆
-						things like games, apps, code, writings, my blog✏
+						things like games🎮, apps, random code snippets,
+						music🎶, writings, my blog✏
 					</p>
 				</div>
 
@@ -98,6 +112,11 @@ import Layout from "../layouts/Layout.astro";
 					</p>
 				</div>
 			</div>
+		</section>
+
+		<section>
+			<!-- //TODO resize!  -->
+			<Image src={qrcode} alt="QR Code for GJTiquia.com" />
 		</section>
 	</main>
 </Layout>

@@ -14,7 +14,7 @@ all commands are run from the root of the project, from a terminal:
 | Command                         | Action                                           |
 | :------------------------------ | :----------------------------------------------- |
 | `deno install --allow-scripts`  | Installs dependencies                            |
-| `deno task`                     | See all available tasks                           |
+| `deno task`                     | See all available tasks                          |
 | `deno task dev`                 | Starts local dev server at `localhost:4321`      |
 | `deno task build`               | Build your production site to `./dist/`          |
 | `deno task preview`             | Preview your build locally, before deploying     |
