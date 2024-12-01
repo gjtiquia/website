@@ -1,9 +1,11 @@
 ---
 import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
 import GitHubLogo from "../components/GitHubLogo.astro";
 import LinkedInLogo from "../components/LinkedInLogo.astro";
 import TwitterLogo from "../components/TwitterLogo.astro";
-import Layout from "../layouts/Layout.astro";
 import qrcode from "../assets/gjtiquia_dot_com.png";
 
 // TODO : refactor header section into its own component
@@ -30,31 +32,7 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 ---
 
 <Layout title="GJ Tiquia">
-	<section class="pt-2 pb-4 px-4 w-full flex justify-between">
-		<a
-			href="/"
-			class="text-stone-100 font-bold hover:underline active:underline"
-			>GJ Tiquia</a
-		>
-		<ul class="flex gap-2">
-			<li>
-				<a
-					href="/garden"
-					class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline transition-all"
-				>
-					garden
-				</a>
-			</li>
-			<li>
-				<a
-					href="/apps"
-					class="text-stone-400 hover:text-stone-300 hover:underline active:text-stone-200 active:underline transition-all"
-				>
-					apps
-				</a>
-			</li>
-		</ul>
-	</section>
+	<HeaderSection />
 
 	<main class="py-2 px-4 flex flex-col items-center gap-6">
 		<section class="w-full flex flex-col items-center gap-2">
@@ -125,16 +103,5 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 		</section>
 	</main>
 
-	<section class="pt-4 pb-2 px-4 w-full flex justify-center">
-		<a
-			href="/"
-			class="text-stone-100 font-bold hover:underline active:underline"
-			>GJ Tiquia</a
-		>
-		<ul class="absolute right-2 flex gap-2">
-			<li><TwitterLogo /></li>
-			<li><GitHubLogo /></li>
-			<li><LinkedInLogo /></li>
-		</ul>
-	</section>
+	<FooterSection />
 </Layout>
