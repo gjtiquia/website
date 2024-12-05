@@ -32,10 +32,11 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 ---
 
 <Layout title="GJ Tiquia">
-	<HeaderSection />
+	<main class="px-4 min-h-dvh flex flex-col items-center">
+		<HeaderSection />
 
-	<main class="py-2 px-4 flex flex-col items-center gap-6">
-		<section class="w-full flex flex-col items-center gap-2">
+		<div class="py-2"></div>
+		<section class="pb-6 w-full flex flex-col items-center gap-2">
 			<div class="w-fit flex flex-col items-center relative pb-2">
 				<p class="text-stone-300 absolute left-0">hey there! im</p>
 				<h1 class="text-stone-100 text-5xl font-bold pt-7 px-12">
@@ -60,34 +61,39 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 		>
 			<h2 class="text-stone-300">what are you doing here?</h2>
 
-			<div
+			<ul
 				class="w-full max-w-xs sm:max-w-full flex flex-col sm:grid sm:grid-cols-2 gap-6"
 			>
-				<a
-					href="/garden"
-					class="bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
-				>
-					<h3 class="text-stone-300 font-bold text-xl">garden</h3>
-					<p class="text-justify text-stone-400">
-						my creative garden🌷 stuff i made over the years📆
-						things like games🎮, apps, random code snippets,
-						music🎶, writings, my blog✏
-					</p>
-				</a>
+				<li>
+					<a
+						href="/garden"
+						class="size-full bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
+					>
+						<h3 class="text-stone-300 font-bold text-xl">garden</h3>
+						<p class="text-justify text-stone-400">
+							my creative garden🌷 stuff i made over the years📆
+							things like games🎮, apps, random code snippets,
+							music🎶, writings, my blog✏
+						</p>
+					</a>
+				</li>
 
-				<a
-					href="/apps"
-					class="bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
-				>
-					<h3 class="text-stone-300 font-bold text-xl">apps</h3>
-					<p class="text-justify text-stone-400">
-						if i wanted to show u something cool, this is probably
-						where i want u to click lol😂
-					</p>
-				</a>
-			</div>
+				<li>
+					<a
+						href="/apps"
+						class="size-full bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
+					>
+						<h3 class="text-stone-300 font-bold text-xl">apps</h3>
+						<p class="text-justify text-stone-400">
+							if i wanted to show u something cool, this is
+							probably where id want u to go😂
+						</p>
+					</a>
+				</li>
+			</ul>
 		</section>
 
+		<div class="py-3"></div>
 		<section
 			class="bg-stone-900 max-w-sm flex flex-col items-center gap-4 px-8 py-4 rounded-lg"
 		>
@@ -101,7 +107,8 @@ garden = hmm never had a place for a photo gallery isnt it?~ Astro apparently op
 				>gjtiquia.com</a
 			>
 		</section>
-	</main>
 
-	<FooterSection />
+		<div class="flex-grow"></div>
+		<FooterSection />
+	</main>
 </Layout>
