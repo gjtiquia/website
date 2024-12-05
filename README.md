@@ -1,38 +1,44 @@
 # GJTiquia.com
 
-Personal website of GJ Tiquia. Currently hosted at https://gjtiquia.com
+my personal site
 
-Built with HTML, TailwindCSS and TypeScript.
+## some context
 
-## Commands
+built with Astro, using the Deno runtime for fun
+- ref: https://deno.com/blog/build-astro-with-deno
 
-Install all the dependencies for the project with the following command.
+## commands
+
+all commands are run from the root of the project, from a terminal:
+
+| Command                         | Action                                           |
+| :------------------------------ | :----------------------------------------------- |
+| `deno install --allow-scripts`  | Installs dependencies                            |
+| `deno task`                     | See all available tasks                          |
+| `deno task dev`                 | Starts local dev server at `localhost:4321`      |
+| `deno task build`               | Build your production site to `./dist/`          |
+| `deno task preview`             | Preview your build locally, before deploying     |
+| `deno task astro ...`           | Run CLI commands like `astro add`, `astro check` |
+| `deno task astro -- --help`     | Get help using the Astro CLI                     |
+
+## project structure
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── components/
+│   │   └── Card.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
-npm install
-```
-Compile and watche file changes for TypeScript and TailwindCSS with the following command.
-```
-npm run dev
-```
-Compile TypeScript and TailwindCSS for production with the following command.
-```
-npm run build
-```
 
-## Dependencies:
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
--   TypeScript  
-    Used in favor of JavaScript for development.
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
--   TailwindCSS  
-    Used as a Utility-first CSS framework for fast development of custom UI.
-
--   ESLint  
-    Used to enforce code style, find and fix problems in TypeScript code during development.
-
--   Showdown  
-    Used to parse markdown files into HTML during build time.
-
--   parseMD  
-    Used to parse metadata from the YAML header in a markdown file during build time.
-
+Any static assets, like images, can be placed in the `public/` directory.

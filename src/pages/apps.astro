@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+---
+
+<Layout title="Apps - GJ Tiquia">
+    <main class="px-4 min-h-dvh flex flex-col items-center">
+        <HeaderSection />
+        <section class="w-full max-w-2xl">
+            <h1 class="text-stone-300 font-bold text-center text-2xl">apps</h1>
+        </section>
+
+        <section class="w-full pt-4 max-w-2xl">
+            <ul class="flex flex-col gap-4">
+                <li class="size-full">
+                    <a
+                        href="https://mini-textarea.netlify.app/"
+                        target="_blank"
+                        class="size-full bg-stone-900 hover:bg-stone-800 active:bg-stone-700 transition-all flex flex-col gap-2 rounded-lg p-4"
+                    >
+                        <h2 class="text-stone-300 font-bold">mini-textarea</h2>
+                        <p class="text-stone-400">
+                            a fast, simple <code>&lt;textarea/&gt;</code> that just
+                            works
+                        </p>
+                    </a>
+                </li>
+
+                <li class="size-full">
+                    <a
+                        href="https://ijustwannacopypaste.up.railway.app/"
+                        target="_blank"
+                        class="size-full bg-stone-900 hover:bg-stone-800 active:bg-stone-700 transition-all flex flex-col gap-2 rounded-lg p-4"
+                    >
+                        <h2 class="text-stone-300 font-bold">
+                            IJUSTWANNACOPYPASTE
+                        </h2>
+                        <p class="text-stone-400">
+                            all i wanna do is COPY AND PASTE SOME TEXT FROM ONE
+                            COMPUTER TO ANOTHER
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <div class="flex-grow"></div>
+        <FooterSection />
+    </main>
+</Layout>
