@@ -21,24 +21,21 @@ all commands are run from the root of the project, from a terminal:
 | `deno task astro ...`           | Run CLI commands like `astro add`, `astro check` |
 | `deno task astro -- --help`     | Get help using the Astro CLI                     |
 
-## project structure
+## updating Astro
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+https://docs.astro.build/en/upgrade-astro/
+
+`deno install --allow-scripts astro@latest @astrojs/tailwind@latest`
+
+## notes on building
+
+you may encounter the following error
+```
+Could not find Sharp. Please install Sharp (`sharp`) manually into your project or migrate to another image service.
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+fix by installing `sharp` manually
+```
+deno add --allow-scripts npm:sharp
+```
+(reference: https://docs.astro.build/en/guides/images/#default-image-service)
