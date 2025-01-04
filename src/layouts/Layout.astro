@@ -32,5 +32,22 @@ const isProd = import.meta.env.PROD;
 	</head>
 	<body class="bg-stone-950">
 		<slot />
+		{
+			// Umami Analytics for tracking outbound links
+			// https://umami.is/docs/track-outbound-links
+			isProd && (
+				<script is:inline type="text/javascript">
+					(() => {
+						const name = 'outbound-link-click';
+						document.querySelectorAll('a').forEach(a => {
+							if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
+								a.setAttribute('data-umami-event', name);
+								a.setAttribute('data-umami-event-url', a.href);
+							}
+						});
+					})();
+				</script>
+			)
+		}
 	</body>
 </html>
