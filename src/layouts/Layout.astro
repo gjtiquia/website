@@ -2,9 +2,10 @@
 interface Props {
 	title: string;
 	description: string;
+	disableDefaultBackground?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, disableDefaultBackground } = Astro.props;
 
 const isProd = import.meta.env.PROD;
 ---
@@ -30,7 +31,7 @@ const isProd = import.meta.env.PROD;
 			)
 		}
 	</head>
-	<body class="bg-stone-950">
+	<body class={!disableDefaultBackground ? "bg-stone-950" : ""}>
 		<slot />
 		{
 			// Umami Analytics for tracking outbound links
