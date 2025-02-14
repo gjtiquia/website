@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
+import AppCard from "../components/apps/AppCard.astro";
 ---
 
 <Layout title="apps🚀 - GJ Tiquia" description="a list of cool apps🚀">
@@ -15,46 +16,25 @@ import FooterSection from "../components/FooterSection.astro";
 
         <section class="w-full pt-4 max-w-2xl">
             <ul class="flex flex-col gap-4">
-                <li class="size-full">
-                    <a
-                        href="https://mini-textarea.netlify.app/"
-                        target="_blank"
-                        class="size-full bg-stone-900 hover:bg-stone-800 active:bg-stone-700 transition-all flex flex-col gap-2 rounded-lg p-4"
-                    >
-                        <h2 class="text-stone-300 font-bold">mini-textarea</h2>
-                        <p class="text-stone-400">
-                            a fast, simple <code>&lt;textarea/&gt;</code> that just
-                            works
-                        </p>
-                    </a>
-                </li>
+                <AppCard
+                    href="https://mini-textarea.netlify.app/"
+                    title="mini-textarea"
+                    description="a fast, simple <textarea/> that just works"
+                >
+                    a fast, simple <code>&lt;textarea/&gt;</code> that just works
+                </AppCard>
 
-                <li class="size-full">
-                    <a
-                        href="https://ijustwannacopypaste.up.railway.app/"
-                        target="_blank"
-                        class="size-full bg-stone-900 hover:bg-stone-800 active:bg-stone-700 transition-all flex flex-col gap-2 rounded-lg p-4"
-                    >
-                        <h2 class="text-stone-300 font-bold">
-                            IJUSTWANNACOPYPASTE
-                        </h2>
-                        <p class="text-stone-400">
-                            all i wanna do is COPY AND PASTE SOME TEXT FROM ONE
-                            COMPUTER TO ANOTHER
-                        </p>
-                    </a>
-                </li>
+                <AppCard
+                    href="https://ijustwannacopypaste.up.railway.app/"
+                    title="IJUSTWANNACOPYPASTE"
+                    description="all i wanna do is COPY AND PASTE SOME TEXT FROM ONE COMPUTER TO ANOTHER"
+                />
 
-                <li class="size-full">
-                    <a
-                        href="https://being-bored.netlify.app/"
-                        target="_blank"
-                        class="size-full bg-stone-900 hover:bg-stone-800 active:bg-stone-700 transition-all flex flex-col gap-2 rounded-lg p-4"
-                    >
-                        <h2 class="text-stone-300 font-bold">being bored</h2>
-                        <p class="text-stone-400">reset your mind</p>
-                    </a>
-                </li>
+                <AppCard
+                    href="https://being-bored.netlify.app/"
+                    title="being bored"
+                    description="reset your mind"
+                />
             </ul>
         </section>
 
