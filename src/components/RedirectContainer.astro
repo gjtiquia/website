@@ -1,0 +1,40 @@
+---
+import UmamiAnalyticsHead from "./UmamiAnalyticsHead.astro";
+import UmamiAnalyticsBody from "./UmamiAnalyticsBody.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    url: string;
+}
+
+const { title, description, url } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="refresh" content={`0; url=${url}`} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <UmamiAnalyticsHead />
+        <slot name="head" />
+    </head>
+    <body
+        class="h-dvh flex flex-col justify-center items-center bg-stone-950 text-stone-50"
+    >
+        <p>
+            If you are not redirected automatically, click
+            <a
+                target="_blank"
+                href={url}
+                class="text-blue-500 underline">here</a
+            >
+        </p>
+        <UmamiAnalyticsBody />
+        <slot name="body" />
+    </body>
+</html>

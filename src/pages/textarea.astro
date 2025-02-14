@@ -1,16 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import IFrameContainer from "../components/IFrameContainer.astro";
 
 ---
 
-<Layout
+<IFrameContainer
     title="mini textarea"
     description="a fast, simple textarea that just works"
-    disableDefaultBackground
->
-    <iframe 
-        class="h-dvh w-full"
-        src="https://mini-textarea.netlify.app/" 
-        title="mini textarea"
-    ></iframe>
-</Layout>
+    url="https://mini-textarea.netlify.app/"
+/>
