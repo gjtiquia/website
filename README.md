@@ -39,3 +39,9 @@ fix by installing `sharp` manually
 deno add --allow-scripts npm:sharp
 ```
 (reference: https://docs.astro.build/en/guides/images/#default-image-service)
+
+## TODO
+
+- qr: eg. `gjtiquia.com/qr/resume` generates a qr code for `gjtiquia.com/resume`
+- portfolio page
+- ux for resume
