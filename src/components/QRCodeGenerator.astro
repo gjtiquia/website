@@ -1,0 +1,57 @@
+---
+// Component to generate QR codes using vanilla JavaScript
+interface Props {
+    url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<div class="qr-code-container flex flex-col items-center">
+    <div id="qr-loading" class="flex justify-center items-center h-52">
+        Loading QR code...
+    </div>
+    <div id="qr-error" class="text-red-500 hidden"></div>
+    <img
+        id="qr-image"
+        class="w-52 h-52 border-2 border-gray-300 p-2 bg-white hidden"
+        alt={`QR code for ${url}`}
+    />
+    <p class="mt-4 text-center text-gray-200 break-all">
+        {url}
+    </p>
+</div>
+
+<script define:vars={{ url }}>
+    // Using browser-native fetch to get QR code from a service
+    async function generateQRCode() {
+        const loadingElement = document.getElementById("qr-loading");
+        const errorElement = document.getElementById("qr-error");
+        const qrImageElement = document.getElementById("qr-image");
+
+        try {
+            // Using the QR code API service
+            const response = await fetch(
+                `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`,
+            );
+
+            if (!response.ok) {
+                throw new Error("Failed to generate QR code");
+            }
+
+            // Get image data and set it to the image element
+            const imageUrl = response.url;
+            qrImageElement.src = imageUrl;
+            qrImageElement.classList.remove("hidden");
+            loadingElement.classList.add("hidden");
+        } catch (err) {
+            console.error("Error generating QR code:", err);
+            errorElement.textContent = "Failed to generate QR code";
+            errorElement.classList.remove("hidden");
+            loadingElement.classList.add("hidden");
+        }
+    }
+
+    // Generate QR code when the component loads
+    document.addEventListener("DOMContentLoaded", generateQRCode);
+</script>

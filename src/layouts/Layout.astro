@@ -1,6 +1,7 @@
 ---
-import UmamiAnalyticsHead from '../components/UmamiAnalyticsHead.astro';
-import UmamiAnalyticsBody from '../components/UmamiAnalyticsBody.astro';
+import UmamiAnalyticsHead from "../components/UmamiAnalyticsHead.astro";
+import UmamiAnalyticsBody from "../components/UmamiAnalyticsBody.astro";
+import QRView from "../components/QRView.astro";
 
 interface Props {
 	title: string;
@@ -11,6 +12,9 @@ interface Props {
 const { title, description, disableDefaultBackground } = Astro.props;
 
 const isProd = import.meta.env.PROD;
+
+// Check if we should display QR code view
+const showQRView = Astro.url.searchParams.get("qr") === "true";
 ---
 
 <!DOCTYPE html>
@@ -21,11 +25,11 @@ const isProd = import.meta.env.PROD;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{showQRView ? `QR Code for ${title}` : title}</title>
 		<UmamiAnalyticsHead />
 	</head>
 	<body class={!disableDefaultBackground ? "bg-stone-950" : ""}>
-		<slot />
+		{showQRView ? <QRView /> : <slot />}
 		<UmamiAnalyticsBody />
 	</body>
 </html>

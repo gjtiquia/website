@@ -1,0 +1,47 @@
+---
+import HeaderSection from "./HeaderSection.astro";
+import FooterSection from "./FooterSection.astro";
+import QRCodeGenerator from "./QRCodeGenerator.astro";
+
+// Get the current URL without the query parameters
+const currentUrl = Astro.url.pathname;
+const baseDomain = import.meta.env.PROD ? "gjtiquia.com" : "localhost:4321";
+
+// Construct the target URL for QR code
+let targetUrl;
+if (currentUrl === "/") {
+    targetUrl = baseDomain;
+} else {
+    targetUrl = `${baseDomain}${currentUrl}`;
+}
+
+// Ensure protocol is included for localhost
+if (targetUrl.startsWith("localhost")) {
+    targetUrl = `http://${targetUrl}`;
+}
+---
+
+<div class="min-h-screen flex flex-col">
+    <HeaderSection />
+
+    <main class="flex-1 container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-3xl font-bold text-white text-center mb-8">
+                QR Code for {targetUrl}
+            </h1>
+
+            <div class="bg-stone-800 p-6 rounded-lg shadow-lg">
+                <QRCodeGenerator url={targetUrl} />
+            </div>
+
+            <div class="mt-6 text-center">
+                <a href={currentUrl} class="text-blue-400 hover:text-blue-300">
+                    Back to Page
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <FooterSection />
+</div>
+

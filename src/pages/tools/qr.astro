@@ -1,0 +1,190 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeaderSection from "../../components/HeaderSection.astro";
+import FooterSection from "../../components/FooterSection.astro";
+import QRCodeGenerator from "../../components/QRCodeGenerator.astro";
+
+// Get current URL for the default value
+const currentUrl = Astro.url.origin;
+---
+
+<Layout title="QR Code Generator" description="Generate QR codes for any URL">
+    <div class="min-h-screen flex flex-col">
+        <HeaderSection />
+
+        <main class="flex-1 container mx-auto px-4 py-8">
+            <div class="max-w-2xl mx-auto">
+                <h1 class="text-3xl font-bold text-white text-center mb-8">
+                    QR Code Generator
+                </h1>
+
+                <div class="bg-stone-800 p-6 rounded-lg shadow-lg mb-8">
+                    <div class="mb-6">
+                        <label for="url-input" class="block text-gray-200 mb-2"
+                            >Enter URL:</label
+                        >
+                        <input
+                            type="text"
+                            id="url-input"
+                            class="w-full p-2 bg-stone-700 text-white border border-stone-600 rounded"
+                            value={currentUrl}
+                        />
+                        <button
+                            id="generate-btn"
+                            class="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded"
+                        >
+                            Generate QR Code
+                        </button>
+                    </div>
+
+                    <div id="qr-code-container" class="flex justify-center">
+                        <QRCodeGenerator url={currentUrl} />
+                    </div>
+                </div>
+
+                <div class="bg-stone-800 p-6 rounded-lg shadow-lg mb-6">
+                    <h2 class="text-xl font-bold text-white mb-4">
+                        Quick Links
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <button
+                            class="px-4 py-2 bg-stone-700 hover:bg-stone-600 text-white rounded qr-quick-link"
+                            data-url={`${Astro.url.origin}`}
+                        >
+                            Home
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-stone-700 hover:bg-stone-600 text-white rounded qr-quick-link"
+                            data-url={`${Astro.url.origin}/apps`}
+                        >
+                            Apps
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-stone-700 hover:bg-stone-600 text-white rounded qr-quick-link"
+                            data-url={`${Astro.url.origin}/resume`}
+                        >
+                            Resume
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-stone-700 hover:bg-stone-600 text-white rounded qr-quick-link"
+                            data-url={`${Astro.url.origin}/garden`}
+                        >
+                            Garden
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <a href="/" class="text-blue-400 hover:text-blue-300">
+                        Return Home
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <FooterSection />
+    </div>
+</Layout>
+
+<script>
+    // Client-side script to handle QR code generation
+    document.addEventListener("DOMContentLoaded", () => {
+        const urlInput = document.getElementById(
+            "url-input",
+        ) as HTMLInputElement;
+        const generateBtn = document.getElementById("generate-btn");
+        const qrContainer = document.getElementById("qr-code-container");
+        const quickLinks = document.querySelectorAll(".qr-quick-link");
+
+        // Check if elements exist before proceeding
+        if (!urlInput || !generateBtn || !qrContainer) {
+            console.error("Could not find required elements");
+            return;
+        }
+
+        // Check if we have a source URL in localStorage
+        const sourceUrl = localStorage.getItem("qrSourceUrl");
+        if (sourceUrl) {
+            // Use it as our initial URL and clear it from localStorage
+            urlInput.value = sourceUrl;
+            localStorage.removeItem("qrSourceUrl");
+
+            // Generate QR code for this URL
+            updateQRCode(sourceUrl);
+        }
+
+        // Function to update QR code
+        function updateQRCode(url: string) {
+            // Clear previous QR code
+            if (qrContainer) {
+                qrContainer.innerHTML = "";
+
+                // Create loading indicator
+                const loading = document.createElement("div");
+                loading.textContent = "Loading QR code...";
+                loading.className = "text-center text-gray-200";
+                qrContainer.appendChild(loading);
+
+                // Create image element
+                const img = document.createElement("img");
+                img.className =
+                    "w-52 h-52 border-2 border-gray-300 p-2 bg-white";
+                img.alt = `QR code for ${url}`;
+
+                // Set image source to QR code API
+                img.onload = () => {
+                    if (qrContainer) {
+                        qrContainer.innerHTML = "";
+                        qrContainer.appendChild(img);
+
+                        // Create URL text under QR code
+                        const urlText = document.createElement("p");
+                        urlText.textContent = url;
+                        urlText.className =
+                            "mt-4 text-center text-gray-200 break-all";
+                        qrContainer.appendChild(urlText);
+                    }
+                };
+
+                img.onerror = () => {
+                    if (qrContainer) {
+                        qrContainer.innerHTML = "Failed to generate QR code";
+                    }
+                };
+
+                img.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+
+                // Update the input field
+                urlInput.value = url;
+            }
+        }
+
+        // Handle generate button click
+        generateBtn.addEventListener("click", () => {
+            const url = urlInput.value.trim();
+            if (url) {
+                updateQRCode(url);
+            }
+        });
+
+        // Handle pressing Enter in the input field
+        urlInput.addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+                const url = urlInput.value.trim();
+                if (url) {
+                    updateQRCode(url);
+                }
+            }
+        });
+
+        // Handle quick links
+        quickLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                const url = (link as HTMLElement).dataset.url;
+                if (url) {
+                    updateQRCode(url);
+                }
+            });
+        });
+    });
+</script>

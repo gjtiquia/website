@@ -7,6 +7,7 @@ import GitHubLogo from "../components/Logos/GitHubLogo.astro";
 import LinkedInLogo from "../components/Logos/LinkedInLogo.astro";
 import TwitterLogo from "../components/Logos/TwitterLogo.astro";
 import qrcode from "../assets/gjtiquia_dot_com.png";
+import QRButton from "../components/QRButton.astro";
 
 // TODO : portfolio (can do much much later)
 /* portfolio
@@ -68,36 +69,30 @@ and probably better descriptions so it'll turn up nicer in Google Search results
 		>
 			<h2 class="text-stone-300">what are you doing here?</h2>
 
-			<ul
-				class="w-full max-w-xs sm:max-w-full flex flex-col sm:grid sm:grid-cols-2 gap-6"
-			>
-				<li>
-					<a
-						href="/garden"
-						class="size-full bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
-					>
-						<h3 class="text-stone-300 font-bold text-xl">garden🌷</h3>
-						<p class="text-justify text-stone-400">
-							my creative garden🌷 stuff i made over the years📆
-							things like games🎮, apps📱, code👩🏾‍💻, music🎶,
-							writings✏
-						</p>
-					</a>
-				</li>
-
-				<li>
-					<a
-						href="/apps"
-						class="size-full bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
-					>
-						<h3 class="text-stone-300 font-bold text-xl">apps🚀</h3>
-						<p class="text-justify text-stone-400">
-							if i wanted to show u something cool, this is
-							probably where id want u to go🚀
-						</p>
-					</a>
-				</li>
-			</ul>
+			<div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+				<a
+					href="/resume"
+					class="px-4 py-2 bg-green-700 hover:bg-green-600 active:bg-green-500 text-white rounded-lg text-center"
+				>
+					resume
+				</a>
+				<a
+					href="/apps"
+					class="px-4 py-2 bg-blue-700 hover:bg-blue-600 active:bg-blue-500 text-white rounded-lg text-center"
+				>
+					apps
+				</a>
+				<a
+					href="/garden"
+					class="px-4 py-2 bg-purple-700 hover:bg-purple-600 active:bg-purple-500 text-white rounded-lg text-center"
+				>
+					garden
+				</a>
+				<QRButton
+					label="QR Code"
+					className="px-4 py-2 bg-stone-700 hover:bg-stone-600 active:bg-stone-500 text-white rounded-lg text-center"
+				/>
+			</div>
 		</section>
 
 		<div class="py-3"></div>

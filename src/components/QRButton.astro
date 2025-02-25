@@ -1,0 +1,37 @@
+---
+// A simple button that redirects to the QR code generator with the current URL
+interface Props {
+    label?: string;
+    className?: string;
+}
+
+const {
+    label = "Show QR Code",
+    className = "px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded",
+} = Astro.props;
+---
+
+<a href="/tools/qr" class={className} id="qr-button">
+    {label}
+</a>
+
+<script>
+    // Add the current URL to localStorage so the QR generator can use it as default
+    document.addEventListener("DOMContentLoaded", () => {
+        const qrBtn = document.getElementById("qr-button");
+
+        if (qrBtn) {
+            qrBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                // Store the current URL to be used by the QR generator
+                const currentUrl = window.location.href;
+                localStorage.setItem("qrSourceUrl", currentUrl);
+
+                // Navigate to the QR generator page
+                window.location.href = "/tools/qr";
+            });
+        }
+    });
+</script>
+

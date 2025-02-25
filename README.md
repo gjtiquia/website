@@ -40,8 +40,26 @@ deno add --allow-scripts npm:sharp
 ```
 (reference: https://docs.astro.build/en/guides/images/#default-image-service)
 
+## QR Code Generator
+
+This website includes a QR code generation feature for any URL. Access it at `/tools/qr` or from the apps page.
+
+### Features
+
+- Generate QR codes for any URL
+- Quick links for common pages
+- Save and share QR codes easily
+- Works entirely client-side with no server processing
+
+### How to Use
+
+1. Navigate to `/tools/qr` directly or from the apps page
+2. Enter any URL you want to generate a QR code for
+3. The QR code is generated instantly
+4. Use the quick links for common pages
+
 ## TODO
 
-- qr: eg. `gjtiquia.com/qr/resume` generates a qr code for `gjtiquia.com/resume`
+- ~~qr: eg. `gjtiquia.com/qr/resume` generates a qr code for `gjtiquia.com/resume`~~
 - portfolio page
 - ux for resume
