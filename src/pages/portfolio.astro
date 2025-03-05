@@ -19,7 +19,9 @@ type ProjectID =
     | "Snake4D"
     | "ClaimsCalculator"
     | "CinematicExperience"
-    | "MathPlanets";
+    | "MathPlanets"
+    | "ChickenOrEgg"
+    | "MyLittlePlantlet";
 
 interface Project {
     id: ProjectID;
@@ -68,7 +70,7 @@ const projects: Project[] = [
         videoAspectRatio: undefined,
         points: [
             "Developed a web application for calculating employees' compensation and personal injuries claims",
-            "Collaborated closely with post-graduate lawyers to design the calculator's structure and user experience",
+            "Collaborated closely with post-graduate lawyers from the University of Hong Kong (HKU) to design the calculator's structure and user experience",
         ],
     },
     {
@@ -95,12 +97,42 @@ const projects: Project[] = [
             "Implemented seamless integration between the web frontend and Unity web frontend",
         ],
     },
+    {
+        id: "ChickenOrEgg",
+        title: "Chicken or the Egg? 雞先定蛋先？",
+        subtitle: "Global Game Jam 2024 Entry • Game Jam",
+        youtubeId: "gpnQldCaDrc",
+        videoAspectRatio: "16:9",
+        points: [
+            "A party game supporting up to 20 players under local connection",
+            "Uses a web app on mobile for the game controller, accessed via a QR code in the beginnning of the game",
+            "Randomly generated map on each playthrough",
+            "Designed the interface and architecture for different powerups so that all programmers can work on different powerups at the same time",
+            "Uses server configurations to support over-the-air (OTA) updates",
+        ],
+    },
+    {
+        id: "MyLittlePlantlet",
+        title: "My Little Plantlet",
+        subtitle: "Global Game Jam 2023 Entry • Game Jam",
+        youtubeId: "CYeN2JnjcVw",
+        videoAspectRatio: "16:9",
+        points: [
+            "Developed a nurturing plant simulation game for Global Game Jam 2023",
+            "Created an engaging gameplay experience focused on caring for and growing a virtual plant",
+            "Implemented dynamic growth systems that respond to player interactions and environmental factors",
+            "Designed visually appealing plant life cycles with responsive animation and state changes",
+            "Collaborated with team members to complete the project within the 48-hour game jam constraints",
+        ],
+    },
 ];
 
 // Order of projects for mobile view
 const mobileProjectOrder: ProjectID[] = [
     "9CatSaga",
     "Snake4D",
+    "ChickenOrEgg",
+    "MyLittlePlantlet",
     "ClaimsCalculator",
     "CinematicExperience",
     "MathPlanets",
@@ -109,10 +141,15 @@ const mobileProjectOrder: ProjectID[] = [
 // Order of projects for desktop view (left column, right column structure)
 const desktopLeftColumn: ProjectID[] = [
     "9CatSaga",
+    "ChickenOrEgg",
     "ClaimsCalculator",
     "CinematicExperience",
 ];
-const desktopRightColumn: ProjectID[] = ["Snake4D", "MathPlanets"];
+const desktopRightColumn: ProjectID[] = [
+    "Snake4D",
+    "MyLittlePlantlet",
+    "MathPlanets",
+];
 ---
 
 <Layout title="portfolio💼 - GJ Tiquia" description="my professional portfolio">
