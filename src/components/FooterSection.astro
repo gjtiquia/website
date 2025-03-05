@@ -4,15 +4,20 @@ import LinkedInLogo from "../components/Logos/LinkedInLogo.astro";
 import TwitterLogo from "../components/Logos/TwitterLogo.astro";
 ---
 
-<section class="relative pt-4 pb-2 w-full max-w-4xl flex justify-center">
-    <a
-        href="/"
-        class="text-stone-200 font-bold hover:underline active:underline"
-        >GJ Tiquia</a
-    >
-    <ul class="absolute right-2 flex gap-2">
-        <li><TwitterLogo /></li>
-        <li><GitHubLogo /></li>
-        <li><LinkedInLogo /></li>
-    </ul>
-</section>
+<footer class="pt-12 pb-6 w-full max-w-4xl border-t border-slate-800">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-2">
+            <p class="text-slate-500 text-sm">© {new Date().getFullYear()}</p>
+            <a
+                href="/"
+                class="text-sky-400 font-bold hover:text-sky-300 transition-colors text-sm"
+                >GJ Tiquia</a
+            >
+        </div>
+        <ul class="flex gap-4">
+            <li><TwitterLogo /></li>
+            <li><GitHubLogo /></li>
+            <li><LinkedInLogo /></li>
+        </ul>
+    </div>
+</footer>
