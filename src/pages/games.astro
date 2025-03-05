@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+import AppCard from "../components/apps/AppCard.astro";
+
+// TODO : game socials should probably be on top, upper right
+// TODO : or similar to home page, three icons
+// TODO : then put noteworthy itch.io web games here
+---
+
+<Layout title="games🎮 - GJ Tiquia" description="a list of fun games🎮">
+    <main class="px-4 min-h-dvh flex flex-col items-center">
+        <HeaderSection />
+        <section class="w-full max-w-2xl">
+            <h1 class="text-stone-300 font-bold text-center text-2xl">
+                games🎮
+            </h1>
+        </section>
+
+        <section class="w-full pt-4 max-w-2xl">
+            <ul class="flex flex-col gap-4">
+                <AppCard
+                    href="https://play.google.com/store/apps/details?id=com.GJTiquia.Snake4D"
+                    title="snake 4d"
+                    description="snake in 4 spatial dimensions. developed for Android"
+                />
+                <AppCard
+                    href="https://globalgamejam.org/games/2024/chicken-or-egg-jixiandingdanxian-7"
+                    title="chicken or the egg? 雞先定蛋先？"
+                    description="a party game developed for the Global Game Jam 2024"
+                />
+                <AppCard
+                    href="https://v3.globalgamejam.org/2023/games/my-little-plantlet-0"
+                    title="my little plantlet"
+                    description="a desktop game developed for the Global Game Jam 2023"
+                />
+                <AppCard
+                    href="https://gjthegamedev.itch.io/"
+                    title="itch.io - @gjthegamedev"
+                    description="other fun little desktop and web games i made"
+                />
+                <AppCard
+                    href="https://www.youtube.com/@gjthegamedev"
+                    title="youtube - @gjthegamedev"
+                    description="dev logs and gameplay videos"
+                />
+                <AppCard
+                    href="https://www.instagram.com/gjthegamedev/"
+                    title="instagram - @gjthegamedev"
+                    description="stories, reels and random little game dev things"
+                />
+            </ul>
+        </section>
+
+        <div class="flex-grow"></div>
+        <FooterSection />
+    </main>
+</Layout>

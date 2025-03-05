@@ -6,10 +6,12 @@ import FooterSection from "../components/FooterSection.astro";
 import GitHubLogo from "../components/Logos/GitHubLogo.astro";
 import LinkedInLogo from "../components/Logos/LinkedInLogo.astro";
 import TwitterLogo from "../components/Logos/TwitterLogo.astro";
+import HomeCard from "../components/home/HomeCard.astro";
 import qrcode from "../assets/gjtiquia_dot_com.png";
 
 // TODO : portfolio (can do much much later)
 /* portfolio
+- (add a part to resume)
 - filipino, born and raised in hong kong, now living in canada
 - short bio: im an artist, code is my canvas
 - (want to know more about me? -> principles/working with doc)
@@ -17,19 +19,6 @@ import qrcode from "../assets/gjtiquia_dot_com.png";
 - educational background (hku, mech, cs, drone, ai)
 - volunteer (game dev happy hour, hkugmg, worship team) 
 - hobbies (music, gaming, basketball)
-*/
-
-/*
-portfolio = career oriented, professional development
-garden = organized 
-apps = quick access to stuff i use often haha
-*/
-
-/*
-can add a /links, which would function as a linktree, can put stuff there like 
-- socials
-- resume download link
-- latest stuff (snake4d)
 */
 
 /*
@@ -53,7 +42,7 @@ and probably better descriptions so it'll turn up nicer in Google Search results
 			</div>
 
 			<p class="text-stone-300 pb-2">
-				just a regular guy doing things for fun🔥
+				just a regular guy doing things for fun :)
 			</p>
 
 			<ul class="flex gap-4">
@@ -64,39 +53,37 @@ and probably better descriptions so it'll turn up nicer in Google Search results
 		</section>
 
 		<section
-			class="bg-stone-900 w-fit sm:w-full max-w-2xl flex flex-col items-center gap-4 px-8 pt-4 pb-6 rounded-lg"
+			class="bg-stone-900 w-full sm:w-full max-w-2xl flex flex-col items-center gap-4 px-8 pt-2 sm:pt-4 pb-4 sm:pb-6 rounded-lg"
 		>
-			<h2 class="text-stone-300">what are you doing here?</h2>
+			<h2 class="text-stone-300">why are you here?</h2>
 
 			<ul
-				class="w-full max-w-xs sm:max-w-full flex flex-col sm:grid sm:grid-cols-2 gap-6"
+				class="w-full max-w-xs sm:max-w-full flex flex-col sm:grid sm:grid-cols-3 gap-6"
 			>
-				<li>
-					<a
-						href="/garden"
-						class="size-full bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
-					>
-						<h3 class="text-stone-300 font-bold text-xl">garden🌷</h3>
-						<p class="text-justify text-stone-400">
-							my creative garden🌷 stuff i made over the years📆
-							things like games🎮, apps📱, code👩🏾‍💻, music🎶,
-							writings✏
-						</p>
-					</a>
-				</li>
+				<!-- TODO -->
+				<!-- <HomeCard
+					href="/portfolio"
+					title="portfolio💼"
+					description="professional stuff"
+				/> -->
 
-				<li>
-					<a
-						href="/apps"
-						class="size-full bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 items-center rounded-lg p-4"
-					>
-						<h3 class="text-stone-300 font-bold text-xl">apps🚀</h3>
-						<p class="text-justify text-stone-400">
-							if i wanted to show u something cool, this is
-							probably where id want u to go🚀
-						</p>
-					</a>
-				</li>
+				<HomeCard
+					href="/garden"
+					title="garden🌷"
+					description="creative stuff"
+				/>
+
+				<HomeCard
+					href="/games"
+					title="games🎮"
+					description="fun stuff"
+				/>
+
+				<HomeCard
+					href="/apps"
+					title="apps🚀"
+					description="cool stuff"
+				/>
 			</ul>
 		</section>
 
@@ -104,7 +91,7 @@ and probably better descriptions so it'll turn up nicer in Google Search results
 		<section
 			class="bg-stone-900 max-w-sm flex flex-col items-center gap-4 px-8 py-4 rounded-lg"
 		>
-			<p class="text-stone-300">scan for the link to this page 🔍</p>
+			<p class="text-stone-300">qr code for this page 🔍</p>
 			<Image
 				class="rounded-lg"
 				src={qrcode}

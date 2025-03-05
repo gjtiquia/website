@@ -6,10 +6,6 @@ import GardenCardContainer from "../components/garden/GardenCardContainer.astro"
 import GardenCard from "../components/garden/GardenCard.astro";
 
 // TODO : photography!
-
-// TODO : collapse and expand feature!
-
-// TODO : game socials should probably be on top, upper right
 ---
 
 <Layout title="garden🌷 - GJ Tiquia" description="my creative garden🌷">
@@ -24,51 +20,17 @@ import GardenCard from "../components/garden/GardenCard.astro";
         <div class="py-2"></div>
 
         <GardenCardContainer title="games🎮">
-            <GardenCard
-                href="https://play.google.com/store/apps/details?id=com.GJTiquia.Snake4D"
-                title="snake 4d"
-                description="snake in 4 spatial dimensions. developed for Android"
-            />
-            <GardenCard
-                href="https://globalgamejam.org/games/2024/chicken-or-egg-jixiandingdanxian-7"
-                title="chicken or the egg? 雞先定蛋先？"
-                description="a party game developed for the Global Game Jam 2024"
-            />
-            <GardenCard
-                href="https://v3.globalgamejam.org/2023/games/my-little-plantlet-0"
-                title="my little plantlet"
-                description="a desktop game developed for the Global Game Jam 2023"
-            />
-            <GardenCard
-                href="https://gjthegamedev.itch.io/"
-                title="itch.io - @gjthegamedev"
-                description="other fun little games i made (some playable on web)"
-            />
-            <GardenCard
-                href="https://www.youtube.com/@gjthegamedev"
-                title="youtube - @gjthegamedev"
-                description="dev logs and gameplay videos~"
-            />
-            <GardenCard
-                href="https://www.instagram.com/gjthegamedev/"
-                title="instagram - @gjthegamedev"
-                description="stories, reels and random little game dev things"
-            />
+            <GardenCard href="/games" title="gjtiquia.com/games" />
         </GardenCardContainer>
 
-        <GardenCardContainer title="apps📱">
-            <GardenCard
-                href="/apps"
-                title="gjtiquia.com/apps"
-                description="a collection of apps that i made which i think are kinda cool"
-            />
+        <GardenCardContainer title="apps🚀">
+            <GardenCard href="/apps" title="gjtiquia.com/apps" />
         </GardenCardContainer>
 
         <GardenCardContainer title="code👩🏾‍💻">
             <GardenCard
                 href="https://github.com/gjtiquia"
                 title="github.com/gjtiquia"
-                description="repositories of code that i wrote over the years📆"
             />
         </GardenCardContainer>
 
@@ -76,12 +38,10 @@ import GardenCard from "../components/garden/GardenCard.astro";
             <GardenCard
                 href="https://www.youtube.com/@gjtiquiamusic"
                 title="youtube - @gjtiquiamusic"
-                description="my youtube channel for music🎶"
             />
             <GardenCard
                 href="https://www.instagram.com/gjtiquiamusic/"
                 title="instagram - @gjtiquiamusic"
-                description="my instagram account for music🎶"
             />
         </GardenCardContainer>
 
@@ -89,7 +49,6 @@ import GardenCard from "../components/garden/GardenCard.astro";
             <GardenCard
                 href="https://blog.gjtiquia.com/"
                 title="GJ's Blog 📝"
-                description="a collection of writings and thoughts in the form of blog posts"
             />
         </GardenCardContainer>
 
