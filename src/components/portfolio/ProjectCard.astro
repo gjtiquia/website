@@ -1,0 +1,51 @@
+---
+interface Props {
+    title: string;
+    subtitle: string; // Type • Company/Organization
+    points: string[]; // Array of bullet points
+    youtubeId?: string; // Optional YouTube video ID
+    videoAspectRatio?: "16:9" | "9:16"; // Optional aspect ratio for videos
+}
+
+const {
+    title,
+    subtitle,
+    points,
+    youtubeId,
+    videoAspectRatio = "16:9",
+} = Astro.props;
+
+// Calculate padding based on aspect ratio
+const aspectRatioPadding = videoAspectRatio === "9:16" ? "177.78%" : "56.25%";
+---
+
+<div class="border border-slate-800 bg-slate-900 rounded-lg p-6">
+    <h3 class="text-sky-400 font-bold text-xl mb-1">{title}</h3>
+    <p class="text-slate-400 text-sm mb-3">{subtitle}</p>
+
+    {
+        youtubeId && (
+            <div
+                class={
+                    videoAspectRatio === "9:16"
+                        ? "relative pb-[105%] h-0 mb-4 overflow-hidden rounded-lg mx-auto max-w-[60%]"
+                        : "relative pb-[56.25%] h-0 mb-4 overflow-hidden rounded-lg"
+                }
+            >
+                <iframe
+                    class="absolute top-0 left-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&rel=0`}
+                    title={`${title} YouTube video`}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                />
+            </div>
+            <div class="py-1"></div>
+        )
+    }
+
+    <ul class="list-disc pl-5 text-slate-300 space-y-4">
+        {points.map((point) => <li>{point}</li>)}
+    </ul>
+</div>

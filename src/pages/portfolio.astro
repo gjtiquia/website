@@ -1,0 +1,446 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+import PortfolioSection from "../components/portfolio/PortfolioSection.astro";
+import ProjectSection from "../components/portfolio/ProjectSection.astro";
+import ProjectCard from "../components/portfolio/ProjectCard.astro";
+import TalkCard from "../components/portfolio/TalkCard.astro";
+import SkillTag from "../components/portfolio/SkillTag.astro";
+import HobbyCard from "../components/portfolio/HobbyCard.astro";
+import { Image } from "astro:assets";
+import profileImage from "../assets/profile-image.jpg";
+
+// TODO : add my little plantlet and chicken and the egg into projects, together with video
+
+// Project data collection
+type ProjectID =
+    | "9CatSaga"
+    | "Snake4D"
+    | "ClaimsCalculator"
+    | "CinematicExperience"
+    | "MathPlanets";
+
+interface Project {
+    id: ProjectID;
+    title: string;
+    subtitle: string;
+    youtubeId?: string;
+    videoAspectRatio?: "9:16" | "16:9";
+    points: string[];
+}
+
+const projects: Project[] = [
+    {
+        id: "9CatSaga",
+        title: "9Cat Saga",
+        subtitle:
+            "Co-op Multiplayer Mobile Game • Daytech HK Limited (9Cat Studio)",
+        youtubeId: "FxkjXTxczNI",
+        videoAspectRatio: undefined,
+        points: [
+            "Developed a top-down isometric 2D shooter game for mobile with real-time co-op multiplayer functionality",
+            "Designed and implemented various multiplayer systems architecture to ensure smooth gameplay experience",
+            "Established coding standards and best practices, ensuring software robustness and maintainability",
+            "Migrated from a singleplayer desktop PC game to a co-op multiplayer mobile experience",
+            "Created procedural map generation systems to increase game replayability",
+        ],
+    },
+    {
+        id: "Snake4D",
+        title: "Snake 4D",
+        subtitle: "Mobile Game • Personal Project",
+        youtubeId: "MYzPd2924X4",
+        videoAspectRatio: "9:16",
+        points: [
+            "Reimagined the classic Snake game as a four-dimensional minimalistic action arcade game",
+            "Designed challenging gameplay that progressively introduces players to 3D and 4D movement mechanics",
+            "Created an intuitive control system that makes complex 4D movement accessible on mobile devices",
+            "Implemented a level progression system that increases difficulty as players advance",
+            "Published to Google Play Store, maintaining a 4.0 rating with over 5,000 downloads",
+        ],
+    },
+    {
+        id: "ClaimsCalculator",
+        title: "Compensation Claims Calculator",
+        subtitle: "Web Application • EC-PIN (PILnet)",
+        youtubeId: undefined,
+        videoAspectRatio: undefined,
+        points: [
+            "Developed a web application for calculating employees' compensation and personal injuries claims",
+            "Collaborated closely with post-graduate lawyers to design the calculator's structure and user experience",
+        ],
+    },
+    {
+        id: "CinematicExperience",
+        title: "Interactive 360° Cinematic Experience",
+        subtitle:
+            "Unity Application • Binary Tree Studio / City University of Hong Kong",
+        youtubeId: undefined,
+        videoAspectRatio: undefined,
+        points: [
+            "Created immersive 360-degree cinematic experiences using Unity",
+            "Integrated generative AI backend with Unity frontend for enhanced interactivity",
+            "Developed cross-platform compatibility while ensuring application robustness",
+        ],
+    },
+    {
+        id: "MathPlanets",
+        title: "Math Planets",
+        subtitle: "Unity Web Game • HKAHSS",
+        youtubeId: undefined,
+        videoAspectRatio: undefined,
+        points: [
+            "Built an interactive and educational web game for secondary school students using Unity",
+            "Implemented seamless integration between the web frontend and Unity web frontend",
+        ],
+    },
+];
+
+// Order of projects for mobile view
+const mobileProjectOrder: ProjectID[] = [
+    "9CatSaga",
+    "Snake4D",
+    "ClaimsCalculator",
+    "CinematicExperience",
+    "MathPlanets",
+];
+
+// Order of projects for desktop view (left column, right column structure)
+const desktopLeftColumn: ProjectID[] = [
+    "9CatSaga",
+    "ClaimsCalculator",
+    "CinematicExperience",
+];
+const desktopRightColumn: ProjectID[] = ["Snake4D", "MathPlanets"];
+---
+
+<Layout title="portfolio💼 - GJ Tiquia" description="my professional portfolio">
+    <main class="px-4 min-h-dvh flex flex-col items-center">
+        <HeaderSection />
+
+        <section class="w-full max-w-2xl pt-4">
+            <h1 class="text-slate-100 font-mono font-bold text-center text-2xl">
+                GJ Tiquia - Portfolio💼
+            </h1>
+        </section>
+
+        <div class="py-3"></div>
+
+        <!-- Bio Section -->
+        <PortfolioSection title="About Me">
+            <div class="flex flex-col items-center mb-6">
+                <Image
+                    src={profileImage}
+                    alt="GJ Tiquia"
+                    width={250}
+                    height={150}
+                    class="rounded-2xl"
+                />
+            </div>
+            <p class="text-slate-300 mb-3">
+                Filipino, born and raised in Hong Kong, now living in Canada.
+            </p>
+            <p class="text-slate-300 mb-3">
+                Passionate in creating unique experiences through games, web
+                apps and mobile apps. I just really love learning and solving
+                problems creatively with others, bringing both value to projects
+                and growth within teams.
+            </p>
+            <p class="text-slate-300 mb-3 italic">
+                "As an engineer, I solve real-world problems. As an artist, code
+                is my canvas and creative output."
+            </p>
+            <div class="pt-8 flex flex-col gap-6">
+                <a
+                    href="/resume"
+                    target="_blank"
+                    class="text-sky-400 hover:text-sky-300 transition-colors text-sm"
+                    >View my resume →</a
+                >
+                <a
+                    href="/resume/download"
+                    target="_blank"
+                    class="text-sky-400 hover:text-sky-300 transition-colors text-sm"
+                    >Download my resume →</a
+                >
+            </div>
+        </PortfolioSection>
+
+        <!-- Projects - Mobile view (less than xl) -->
+        <div class="xl:hidden">
+            <ProjectSection title="Projects">
+                <div class="flex flex-col gap-6">
+                    {
+                        mobileProjectOrder.map((id) => {
+                            const project = projects.find((p) => p.id === id);
+                            if (!project) return null;
+                            return (
+                                <ProjectCard
+                                    title={project.title}
+                                    subtitle={project.subtitle}
+                                    youtubeId={project.youtubeId}
+                                    videoAspectRatio={project.videoAspectRatio}
+                                    points={project.points}
+                                />
+                            );
+                        })
+                    }
+                </div>
+            </ProjectSection>
+        </div>
+
+        <!-- Projects - Desktop view (xl and above) -->
+        <div class="hidden xl:block">
+            <ProjectSection title="Projects">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-6">
+                        {
+                            desktopLeftColumn.map((id) => {
+                                const project = projects.find(
+                                    (p) => p.id === id,
+                                );
+                                if (!project) return null;
+                                return (
+                                    <ProjectCard
+                                        title={project.title}
+                                        subtitle={project.subtitle}
+                                        youtubeId={project.youtubeId}
+                                        videoAspectRatio={
+                                            project.videoAspectRatio
+                                        }
+                                        points={project.points}
+                                    />
+                                );
+                            })
+                        }
+                    </div>
+
+                    <div class="flex flex-col gap-6">
+                        {
+                            desktopRightColumn.map((id) => {
+                                const project = projects.find(
+                                    (p) => p.id === id,
+                                );
+                                if (!project) return null;
+                                return (
+                                    <ProjectCard
+                                        title={project.title}
+                                        subtitle={project.subtitle}
+                                        youtubeId={project.youtubeId}
+                                        videoAspectRatio={
+                                            project.videoAspectRatio
+                                        }
+                                        points={project.points}
+                                    />
+                                );
+                            })
+                        }
+                    </div>
+                </div>
+            </ProjectSection>
+        </div>
+
+        <!-- Talks -->
+        <ProjectSection title="Talks">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                <TalkCard
+                    title="Online Multiplayer 101: The Building Blocks of MMOs"
+                    event="Game Dev Happy Hour HK"
+                    year="2024"
+                    youtubeId="IQ-pZxKS1Oc"
+                    points={[
+                        "Presented key concepts and techniques for creating multiplayer game systems",
+                        "Shared experiences from developing the multiplayer functionality for 9Cat Saga",
+                        "Covered networking fundamentals including client-server architecture and P2P models",
+                        "Demonstrated practical synchronization strategies for real-time multiplayer games",
+                        "Provided implementation tips for handling latency and ensuring consistent gameplay",
+                    ]}
+                />
+
+                <TalkCard
+                    title="Building Intelligent NPCs: A Crash Course on NPC AI"
+                    event="Game Dev Happy Hour HK"
+                    year="2024"
+                    youtubeId="hTleipiAEJ8"
+                    points={[
+                        "Explored techniques for creating engaging and dynamic NPC behaviors in games",
+                        "Demonstrated progression from simple state machines to complex behavior trees",
+                        "Showcased methods for balancing AI complexity with performance considerations",
+                        "Presented strategies for designing NPCs that respond believably to player actions",
+                        "Shared implementation approaches that enhance gameplay without excessive CPU usage",
+                    ]}
+                />
+            </div>
+        </ProjectSection>
+
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <!-- Skills -->
+            <PortfolioSection title="Skills">
+                <div class="flex flex-col gap-4 mb-6">
+                    <div
+                        class="border border-slate-800 bg-slate-900 rounded-lg p-4"
+                    >
+                        <h3 class="text-slate-100 font-bold mb-3">
+                            Programming Languages
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <SkillTag name="C#" />
+                            <SkillTag name="JavaScript" />
+                            <SkillTag name="TypeScript" />
+                            <SkillTag name="C++" />
+                            <SkillTag name="C" />
+                            <SkillTag name="Python" />
+                            <SkillTag name="Java" />
+                            <SkillTag name="HTML" />
+                            <SkillTag name="CSS" />
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-slate-800 bg-slate-900 rounded-lg p-4"
+                    >
+                        <h3 class="text-slate-100 font-bold mb-3">
+                            Technologies
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <SkillTag name="React" />
+                            <SkillTag name="React Native" />
+                            <SkillTag name="Next.js" />
+                            <SkillTag name="Astro" />
+                            <SkillTag name="Tailwind CSS" />
+                            <SkillTag name="Express.js" />
+                            <SkillTag name="Hono" />
+                            <SkillTag name="Deno" />
+                            <SkillTag name="Fresh" />
+                            <SkillTag name="Electron" />
+                            <SkillTag name="Socket.io" />
+                            <SkillTag name="WebSockets" />
+                            <SkillTag name="PixiJS" />
+                            <SkillTag name="Vite" />
+                            <SkillTag name="PostgreSQL" />
+                            <SkillTag name="Docker" />
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-slate-800 bg-slate-900 rounded-lg p-4"
+                    >
+                        <h3 class="text-slate-100 font-bold mb-3">
+                            Game Development
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <SkillTag name="Unity" />
+                            <SkillTag name="Photon Fusion" />
+                            <SkillTag name="Multiplayer Development" />
+                            <SkillTag name="AI Behaviour" />
+                            <SkillTag name="Game Design" />
+                            <SkillTag name="Mobile Games" />
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-slate-800 bg-slate-900 rounded-lg p-4"
+                    >
+                        <h3 class="text-slate-100 font-bold mb-3">
+                            Professional Skills
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <SkillTag name="Project Management" />
+                            <SkillTag name="Technical Leadership" />
+                            <SkillTag name="Mentoring" />
+                            <SkillTag name="Coaching" />
+                            <SkillTag name="Hiring" />
+                            <SkillTag name="Problem Solving" />
+                            <SkillTag name="TDD" />
+                            <SkillTag name="Public Speaking" />
+                        </div>
+                    </div>
+                </div>
+            </PortfolioSection>
+
+            <div>
+                <!-- Education -->
+                <PortfolioSection title="Education">
+                    <div>
+                        <h3 class="text-slate-100 font-bold">
+                            The University of Hong Kong (HKU)
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-2">
+                            Bachelor of Mechanical Engineering • 2018-2022
+                        </p>
+                        <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                            <li>First Class Honours</li>
+                            <li>Dean's Honour List</li>
+                            <li>
+                                Focus in Product Development and Manufacturing
+                            </li>
+                            <li>
+                                Minor in Computer Science. Courses in Game and
+                                Mobile App Development, Artificial Intelligence
+                            </li>
+                            <li>
+                                Team Captain of HKU Unmanned Aerial Systems
+                                Team, leading 30+ people in overseas
+                                competitions
+                            </li>
+                            <li>
+                                Executive Commitee Member of HKUSU Gospel Music
+                                Group
+                            </li>
+                        </ul>
+                    </div>
+                </PortfolioSection>
+
+                <!-- Hobbies -->
+                <PortfolioSection title="Hobbies">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <HobbyCard
+                            title="Music 🎵"
+                            description="Playing and composing music"
+                        />
+
+                        <HobbyCard
+                            title="Gaming 🎮"
+                            description="Playing and creating games"
+                        />
+
+                        <HobbyCard
+                            title="Basketball 🏀"
+                            description="Playing and watching games"
+                        />
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                        <HobbyCard
+                            title="Reading 📚"
+                            description="Books and articles"
+                        />
+
+                        <HobbyCard
+                            title="Coding 💻"
+                            description="Personal projects"
+                        />
+
+                        <HobbyCard
+                            title="Photography 📸"
+                            description="Capturing moments"
+                        />
+                    </div>
+                </PortfolioSection>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="w-full max-w-2xl flex justify-center mb-8">
+            <a
+                href="/"
+                class="text-sky-400 hover:text-sky-300 transition-colors font-mono"
+                >← back to home</a
+            >
+        </div>
+
+        <div class="flex-grow"></div>
+        <FooterSection />
+    </main>
+</Layout>

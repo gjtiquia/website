@@ -1,0 +1,34 @@
+---
+// TalkCard.astro - Reusable component for talk cards with embedded videos
+interface Props {
+    title: string;
+    event: string;
+    year: string;
+    youtubeId: string;
+    points: string[];
+}
+
+const { title, event, year, youtubeId, points } = Astro.props;
+---
+
+<div class="border border-slate-800 bg-slate-900 rounded-lg p-6">
+    <h3 class="text-sky-400 font-bold text-xl mb-1">
+        {title}
+    </h3>
+    <p class="text-slate-400 text-sm mb-3">
+        {event} • {year}
+    </p>
+    <div class="relative w-full mb-4" style="padding-top: 56.25%;">
+        <iframe
+            class="absolute top-0 left-0 w-full h-full rounded-md"
+            src={`https://www.youtube.com/embed/${youtubeId}`}
+            title={title}
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        >
+        </iframe>
+    </div>
+    <ul class="list-disc pl-5 text-slate-300 space-y-1">
+        {points.map((point) => <li>{point}</li>)}
+    </ul>
+</div>
