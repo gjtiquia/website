@@ -63,69 +63,137 @@ import profileImage from "../assets/profile-image.jpg";
             </div>
         </PortfolioSection>
 
-        <!-- Projects -->
-        <ProjectSection title="Projects">
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-                <ProjectCard
-                    title="9Cat Saga"
-                    subtitle="Co-op Multiplayer Mobile Game • Daytech HK Limited (9Cat Studio)"
-                    youtubeId="FxkjXTxczNI"
-                    points={[
-                        "Developed a top-down isometric 2D shooter game for mobile with real-time co-op multiplayer functionality",
-                        "Designed and implemented various multiplayer systems architecture to ensure smooth gameplay experience",
-                        "Established coding standards and best practices, ensuring software robustness and maintainability",
-                        "Migrated from a singleplayer desktop PC game to a co-op multiplayer mobile experience",
-                        "Created procedural map generation systems to increase game replayability",
-                    ]}
-                />
+        <!-- Projects - Mobile view (less than xl) -->
+        <div class="xl:hidden">
+            <ProjectSection title="Projects">
+                <div class="flex flex-col gap-6">
+                    <ProjectCard
+                        title="9Cat Saga"
+                        subtitle="Co-op Multiplayer Mobile Game • Daytech HK Limited (9Cat Studio)"
+                        youtubeId="FxkjXTxczNI"
+                        points={[
+                            "Developed a top-down isometric 2D shooter game for mobile with real-time co-op multiplayer functionality",
+                            "Designed and implemented various multiplayer systems architecture to ensure smooth gameplay experience",
+                            "Established coding standards and best practices, ensuring software robustness and maintainability",
+                            "Migrated from a singleplayer desktop PC game to a co-op multiplayer mobile experience",
+                            "Created procedural map generation systems to increase game replayability",
+                        ]}
+                    />
 
-                <ProjectCard
-                    title="Snake 4D"
-                    subtitle="Mobile Game • Personal Project"
-                    youtubeId="MYzPd2924X4"
-                    videoAspectRatio="9:16"
-                    points={[
-                        "Reimagined the classic Snake game as a four-dimensional minimalistic action arcade game",
-                        "Designed challenging gameplay that progressively introduces players to 3D and 4D movement mechanics",
-                        "Created an intuitive control system that makes complex 4D movement accessible on mobile devices",
-                        "Implemented a level progression system that increases difficulty as players advance",
-                        "Published to Google Play Store, maintaining a 4.0 rating with over 5,000 downloads",
-                    ]}
-                />
+                    <ProjectCard
+                        title="Snake 4D"
+                        subtitle="Mobile Game • Personal Project"
+                        youtubeId="MYzPd2924X4"
+                        videoAspectRatio="9:16"
+                        points={[
+                            "Reimagined the classic Snake game as a four-dimensional minimalistic action arcade game",
+                            "Designed challenging gameplay that progressively introduces players to 3D and 4D movement mechanics",
+                            "Created an intuitive control system that makes complex 4D movement accessible on mobile devices",
+                            "Implemented a level progression system that increases difficulty as players advance",
+                            "Published to Google Play Store, maintaining a 4.0 rating with over 5,000 downloads",
+                        ]}
+                    />
 
-                <ProjectCard
-                    title="Compensation Claims Calculator"
-                    subtitle="Web Application • EC-PIN (PILnet)"
-                    points={[
-                        "Developed a web application for calculating employees' compensation and personal injuries claims",
-                        "Collaborated closely with post-graduate lawyers to design the calculator's structure and user experience",
-                    ]}
-                />
+                    <ProjectCard
+                        title="Compensation Claims Calculator"
+                        subtitle="Web Application • EC-PIN (PILnet)"
+                        points={[
+                            "Developed a web application for calculating employees' compensation and personal injuries claims",
+                            "Collaborated closely with post-graduate lawyers to design the calculator's structure and user experience",
+                        ]}
+                    />
 
-                <ProjectCard
-                    title="Interactive 360° Cinematic Experience"
-                    subtitle="Unity Application • Binary Tree Studio / City University of Hong Kong"
-                    points={[
-                        "Created immersive 360-degree cinematic experiences using Unity",
-                        "Integrated generative AI backend with Unity frontend for enhanced interactivity",
-                        "Developed cross-platform compatibility while ensuring application robustness",
-                    ]}
-                />
+                    <ProjectCard
+                        title="Interactive 360° Cinematic Experience"
+                        subtitle="Unity Application • Binary Tree Studio / City University of Hong Kong"
+                        points={[
+                            "Created immersive 360-degree cinematic experiences using Unity",
+                            "Integrated generative AI backend with Unity frontend for enhanced interactivity",
+                            "Developed cross-platform compatibility while ensuring application robustness",
+                        ]}
+                    />
 
-                <ProjectCard
-                    title="Educational Web Game"
-                    subtitle="Unity Web Game • HKAHSS"
-                    points={[
-                        "Built an interactive and educational web game for secondary school students using Unity",
-                        "Implemented seamless integration between the web frontend and Unity web frontend",
-                    ]}
-                />
-            </div>
-        </ProjectSection>
+                    <ProjectCard
+                        title="Educational Web Game"
+                        subtitle="Unity Web Game • HKAHSS"
+                        points={[
+                            "Built an interactive and educational web game for secondary school students using Unity",
+                            "Implemented seamless integration between the web frontend and Unity web frontend",
+                        ]}
+                    />
+                </div>
+            </ProjectSection>
+        </div>
+
+        <!-- Projects - Desktop view (xl and above) -->
+        <div class="hidden xl:block">
+            <ProjectSection title="Projects">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-6">
+                        <ProjectCard
+                            title="9Cat Saga"
+                            subtitle="Co-op Multiplayer Mobile Game • Daytech HK Limited (9Cat Studio)"
+                            youtubeId="FxkjXTxczNI"
+                            points={[
+                                "Developed a top-down isometric 2D shooter game for mobile with real-time co-op multiplayer functionality",
+                                "Designed and implemented various multiplayer systems architecture to ensure smooth gameplay experience",
+                                "Established coding standards and best practices, ensuring software robustness and maintainability",
+                                "Migrated from a singleplayer desktop PC game to a co-op multiplayer mobile experience",
+                                "Created procedural map generation systems to increase game replayability",
+                            ]}
+                        />
+
+                        <ProjectCard
+                            title="Compensation Claims Calculator"
+                            subtitle="Web Application • EC-PIN (PILnet)"
+                            points={[
+                                "Developed a web application for calculating employees' compensation and personal injuries claims",
+                                "Collaborated closely with post-graduate lawyers to design the calculator's structure and user experience",
+                            ]}
+                        />
+
+                        <ProjectCard
+                            title="Interactive 360° Cinematic Experience"
+                            subtitle="Unity Application • Binary Tree Studio / City University of Hong Kong"
+                            points={[
+                                "Created immersive 360-degree cinematic experiences using Unity",
+                                "Integrated generative AI backend with Unity frontend for enhanced interactivity",
+                                "Developed cross-platform compatibility while ensuring application robustness",
+                            ]}
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-6">
+                        <ProjectCard
+                            title="Snake 4D"
+                            subtitle="Mobile Game • Personal Project"
+                            youtubeId="MYzPd2924X4"
+                            videoAspectRatio="9:16"
+                            points={[
+                                "Reimagined the classic Snake game as a four-dimensional minimalistic action arcade game",
+                                "Designed challenging gameplay that progressively introduces players to 3D and 4D movement mechanics",
+                                "Created an intuitive control system that makes complex 4D movement accessible on mobile devices",
+                                "Implemented a level progression system that increases difficulty as players advance",
+                                "Published to Google Play Store, maintaining a 4.0 rating with over 5,000 downloads",
+                            ]}
+                        />
+
+                        <ProjectCard
+                            title="Educational Web Game"
+                            subtitle="Unity Web Game • HKAHSS"
+                            points={[
+                                "Built an interactive and educational web game for secondary school students using Unity",
+                                "Implemented seamless integration between the web frontend and Unity web frontend",
+                            ]}
+                        />
+                    </div>
+                </div>
+            </ProjectSection>
+        </div>
 
         <!-- Talks -->
-        <PortfolioSection title="Talks">
-            <div class="flex flex-col gap-6">
+        <ProjectSection title="Talks">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 <TalkCard
                     title="Online Multiplayer 101: The Building Blocks of MMOs"
                     event="Game Dev Happy Hour HK"
@@ -154,7 +222,7 @@ import profileImage from "../assets/profile-image.jpg";
                     ]}
                 />
             </div>
-        </PortfolioSection>
+        </ProjectSection>
 
         <!-- Education -->
         <PortfolioSection title="Education">
