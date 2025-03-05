@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 import AppCard from "../components/apps/AppCard.astro";
+import ItchioLogo from "../components/Logos/ItchioLogo.astro";
+import YoutubeLogo from "../components/Logos/YoutubeLogo.astro";
+import InstagramLogo from "../components/Logos/InstagramLogo.astro";
 
 // TODO : game socials should probably be on top, upper right
 // TODO : or similar to home page, three icons
@@ -18,12 +21,24 @@ import AppCard from "../components/apps/AppCard.astro";
             </h1>
         </section>
 
+        <section class="pt-4 flex flex-col items-center gap-2">
+            <p class="text-stone-300 text-center pb-2">
+                just a regular guy making games for fun :)
+            </p>
+            <ul class="flex gap-4">
+                <li><ItchioLogo /></li>
+                <li><YoutubeLogo /></li>
+                <li><InstagramLogo /></li>
+            </ul>
+            <p class="text-stone-300 pb-2 text-center">@gjthegamedev</p>
+        </section>
+
         <section class="w-full pt-4 max-w-2xl">
             <ul class="flex flex-col gap-4">
                 <AppCard
                     href="https://play.google.com/store/apps/details?id=com.GJTiquia.Snake4D"
                     title="snake 4d"
-                    description="snake in 4 spatial dimensions. developed for Android"
+                    description="snake in 4 spatial dimensions. an android mobile game"
                 />
                 <AppCard
                     href="https://globalgamejam.org/games/2024/chicken-or-egg-jixiandingdanxian-7"
@@ -34,21 +49,6 @@ import AppCard from "../components/apps/AppCard.astro";
                     href="https://v3.globalgamejam.org/2023/games/my-little-plantlet-0"
                     title="my little plantlet"
                     description="a desktop game developed for the Global Game Jam 2023"
-                />
-                <AppCard
-                    href="https://gjthegamedev.itch.io/"
-                    title="itch.io - @gjthegamedev"
-                    description="other fun little desktop and web games i made"
-                />
-                <AppCard
-                    href="https://www.youtube.com/@gjthegamedev"
-                    title="youtube - @gjthegamedev"
-                    description="dev logs and gameplay videos"
-                />
-                <AppCard
-                    href="https://www.instagram.com/gjthegamedev/"
-                    title="instagram - @gjthegamedev"
-                    description="stories, reels and random little game dev things"
                 />
             </ul>
         </section>
