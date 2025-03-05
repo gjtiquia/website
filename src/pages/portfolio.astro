@@ -4,6 +4,7 @@ import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 import PortfolioSection from "../components/portfolio/PortfolioSection.astro";
 import ProjectCard from "../components/portfolio/ProjectCard.astro";
+import SkillTag from "../components/portfolio/SkillTag.astro";
 import { Image } from "astro:assets";
 import profileImage from "../assets/profile-image.jpg";
 ---
@@ -146,30 +147,74 @@ import profileImage from "../assets/profile-image.jpg";
 
         <!-- Skills -->
         <PortfolioSection title="Skills">
-            <ul class="list-disc pl-5 text-slate-300 space-y-2">
-                <li>
-                    <span class="text-slate-100 font-semibold"
-                        >Programming Languages:</span
-                    > C#, JavaScript/TypeScript, C++, C, Python, Java, HTML, CSS
-                </li>
-                <li>
-                    <span class="text-slate-100 font-semibold"
-                        >Technologies:</span
-                    > React, React Native, Next.js, Tailwind CSS, Express.js, Hono,
-                    Deno, PostgreSQL, Docker
-                </li>
-                <li>
-                    <span class="text-slate-100 font-semibold"
-                        >Game Development:</span
-                    > Unity, Multiplayer Development, AI Behaviour Development
-                </li>
-                <li>
-                    <span class="text-slate-100 font-semibold"
-                        >Professional Skills:</span
-                    > Project Management, Technical Team Leadership, Mentoring &
-                    Coaching, Hiring
-                </li>
-            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div
+                    class="border border-slate-800 bg-slate-900 rounded-lg p-4"
+                >
+                    <h3 class="text-slate-100 font-bold mb-3">
+                        Programming Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <SkillTag name="C#" />
+                        <SkillTag name="JavaScript" />
+                        <SkillTag name="TypeScript" />
+                        <SkillTag name="C++" />
+                        <SkillTag name="C" />
+                        <SkillTag name="Python" />
+                        <SkillTag name="Java" />
+                        <SkillTag name="HTML" />
+                        <SkillTag name="CSS" />
+                    </div>
+                </div>
+
+                <div
+                    class="border border-slate-800 bg-slate-900 rounded-lg p-4"
+                >
+                    <h3 class="text-slate-100 font-bold mb-3">Technologies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <SkillTag name="React" />
+                        <SkillTag name="React Native" />
+                        <SkillTag name="Next.js" />
+                        <SkillTag name="Tailwind CSS" />
+                        <SkillTag name="Express.js" />
+                        <SkillTag name="Hono" />
+                        <SkillTag name="Deno" />
+                        <SkillTag name="PostgreSQL" />
+                        <SkillTag name="Docker" />
+                    </div>
+                </div>
+
+                <div
+                    class="border border-slate-800 bg-slate-900 rounded-lg p-4"
+                >
+                    <h3 class="text-slate-100 font-bold mb-3">
+                        Game Development
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <SkillTag name="Unity" />
+                        <SkillTag name="Multiplayer Development" />
+                        <SkillTag name="AI Behaviour" />
+                        <SkillTag name="Game Design" />
+                        <SkillTag name="Mobile Games" />
+                    </div>
+                </div>
+
+                <div
+                    class="border border-slate-800 bg-slate-900 rounded-lg p-4"
+                >
+                    <h3 class="text-slate-100 font-bold mb-3">
+                        Professional Skills
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <SkillTag name="Project Management" />
+                        <SkillTag name="Technical Leadership" />
+                        <SkillTag name="Mentoring" />
+                        <SkillTag name="Coaching" />
+                        <SkillTag name="Hiring" />
+                        <SkillTag name="Problem Solving" />
+                    </div>
+                </div>
+            </div>
         </PortfolioSection>
 
         <!-- Volunteer Work -->
