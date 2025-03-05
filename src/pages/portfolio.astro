@@ -1,0 +1,282 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+import PortfolioSection from "../components/portfolio/PortfolioSection.astro";
+---
+
+<Layout title="portfolio💼 - GJ Tiquia" description="my professional portfolio">
+    <main class="px-4 min-h-dvh flex flex-col items-center">
+        <HeaderSection />
+
+        <section class="w-full max-w-2xl pt-4">
+            <h1 class="text-slate-100 font-mono font-bold text-center text-2xl">
+                portfolio💼
+            </h1>
+        </section>
+
+        <div class="py-6"></div>
+
+        <!-- Bio Section -->
+        <PortfolioSection title="About Me">
+            <p class="text-slate-300 mb-3">
+                Filipino, born and raised in Hong Kong, now living in Canada.
+            </p>
+            <p class="text-slate-300 mb-3">
+                Passionate in creating unique experiences through games, web
+                apps and mobile apps. I just really love learning and solving
+                problems creatively with others, bringing both value to projects
+                and growth within teams.
+            </p>
+            <p class="text-slate-300 mb-3 italic">
+                "As an engineer, I solve real-world problems. As an artist, code
+                is my canvas and creative output."
+            </p>
+            <a
+                href="https://github.com/gjtiquia/resume"
+                target="_blank"
+                class="text-sky-400 hover:text-sky-300 transition-colors text-sm"
+                >View my resume →</a
+            >
+        </PortfolioSection>
+
+        <!-- Professional Experience -->
+        <PortfolioSection title="Projects">
+            <div class="mb-6">
+                <h3 class="text-slate-100 font-bold">9Cat Saga</h3>
+                <p class="text-slate-400 text-sm mb-2">
+                    Co-op Multiplayer Mobile Game • Daytech HK Limited (9Cat
+                    Studio)
+                </p>
+                <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                    <li>
+                        Developed a top-down isometric 2D shooter game for
+                        mobile with real-time co-op multiplayer functionality
+                    </li>
+                    <li>
+                        Designed and implemented various multiplayer systems
+                        architecture to ensure smooth gameplay experience
+                    </li>
+                    <li>
+                        Established coding standards and best practices,
+                        ensuring software robustness and maintainability
+                    </li>
+                    <li>
+                        Migrated from a singleplayer desktop PC game to a co-op
+                        multiplayer mobile experience
+                    </li>
+                    <li>
+                        Created procedural map generation systems to increase
+                        game replayability
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="text-slate-100 font-bold">
+                    Compensation Claims Calculator
+                </h3>
+                <p class="text-slate-400 text-sm mb-2">
+                    Web Application • EC-PIN (PILnet)
+                </p>
+                <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                    <li>
+                        Developed a web application for calculating employees'
+                        compensation and personal injuries claims
+                    </li>
+                    <li>
+                        Collaborated closely with post-graduate lawyers to
+                        design the calculator's structure and user experience
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="text-slate-100 font-bold">
+                    Interactive 360° Cinematic Experience
+                </h3>
+                <p class="text-slate-400 text-sm mb-2">
+                    Unity Application • Binary Tree Studio / City University of
+                    Hong Kong
+                </p>
+                <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                    <li>
+                        Created immersive 360-degree cinematic experiences using
+                        Unity
+                    </li>
+                    <li>
+                        Integrated generative AI backend with Unity frontend for
+                        enhanced interactivity
+                    </li>
+                    <li>
+                        Developed cross-platform compatibility while ensuring
+                        application robustness
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-slate-100 font-bold">Educational Web Game</h3>
+                <p class="text-slate-400 text-sm mb-2">
+                    Unity Web Game • HKAHSS
+                </p>
+                <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                    <li>
+                        Built an interactive and educational web game for
+                        secondary school students using Unity
+                    </li>
+                    <li>
+                        Implemented seamless integration between the web
+                        frontend and Unity web frontend
+                    </li>
+                </ul>
+            </div>
+        </PortfolioSection>
+
+        <!-- Education -->
+        <PortfolioSection title="Education">
+            <div>
+                <h3 class="text-slate-100 font-bold">
+                    The University of Hong Kong (HKU)
+                </h3>
+                <p class="text-slate-400 text-sm mb-2">
+                    Bachelor of Mechanical Engineering • 2018-2022
+                </p>
+                <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                    <li>First Class Honours | Dean's Honour List</li>
+                    <li>Focus in Product Development and Manufacturing</li>
+                    <li>
+                        Minor in Computer Science. Courses in Game and Mobile
+                        App Development, Artificial Intelligence
+                    </li>
+                    <li>
+                        Team Captain of HKU Unmanned Aerial Systems Team,
+                        leading 30+ people in overseas competitions
+                    </li>
+                </ul>
+            </div>
+        </PortfolioSection>
+
+        <!-- Skills -->
+        <PortfolioSection title="Skills">
+            <ul class="list-disc pl-5 text-slate-300 space-y-2">
+                <li>
+                    <span class="text-slate-100 font-semibold"
+                        >Programming Languages:</span
+                    > C#, JavaScript/TypeScript, C++, C, Python, Java, HTML, CSS
+                </li>
+                <li>
+                    <span class="text-slate-100 font-semibold"
+                        >Technologies:</span
+                    > React, React Native, Next.js, Tailwind CSS, Express.js, Hono,
+                    Deno, PostgreSQL, Docker
+                </li>
+                <li>
+                    <span class="text-slate-100 font-semibold"
+                        >Game Development:</span
+                    > Unity, Multiplayer Development, AI Behaviour Development
+                </li>
+                <li>
+                    <span class="text-slate-100 font-semibold"
+                        >Professional Skills:</span
+                    > Project Management, Technical Team Leadership, Mentoring &
+                    Coaching, Hiring
+                </li>
+            </ul>
+        </PortfolioSection>
+
+        <!-- Volunteer Work -->
+        <PortfolioSection title="Volunteer Experience">
+            <div class="mb-4">
+                <h3 class="text-slate-100 font-bold">Game Dev Happy Hour HK</h3>
+                <p class="text-slate-400 text-sm mb-2">Guest Speaker • 2024</p>
+                <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                    <li>
+                        Gave talks on "Online Multiplayer 101: The Building
+                        Blocks of MMOs" and "Building Intelligent NPCs: A Crash
+                        Course on NPC AI"
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <h3 class="text-slate-100 font-bold">Hand Eye Society</h3>
+                <p class="text-slate-400 text-sm mb-2">
+                    Event Volunteer • 2024
+                </p>
+                <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                    <li>
+                        Volunteered at the Hand Eye Society Ball in Toronto as a
+                        front desk receptionist
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-slate-100 font-bold">
+                    Gospel Music Group, HKUSUCA
+                </h3>
+                <p class="text-slate-400 text-sm mb-2">
+                    Executive Committee Member • 2020-2021
+                </p>
+                <ul class="list-disc pl-5 text-slate-300 space-y-1">
+                    <li>
+                        Coordinated sharing sessions, workshops and musicals in
+                        various external organizations
+                    </li>
+                    <li>
+                        Managed and maintained instruments and audio equipment
+                    </li>
+                </ul>
+            </div>
+        </PortfolioSection>
+
+        <!-- Hobbies -->
+        <PortfolioSection title="Hobbies">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div
+                    class="border border-slate-800 bg-slate-900 rounded-lg p-4 text-center"
+                >
+                    <h3 class="text-slate-100 font-bold mb-2">Music 🎵</h3>
+                    <p class="text-slate-300 text-sm">
+                        Playing instruments and composing
+                    </p>
+                </div>
+
+                <div
+                    class="border border-slate-800 bg-slate-900 rounded-lg p-4 text-center"
+                >
+                    <h3 class="text-slate-100 font-bold mb-2">Gaming 🎮</h3>
+                    <p class="text-slate-300 text-sm">
+                        Playing and creating games
+                    </p>
+                </div>
+
+                <div
+                    class="border border-slate-800 bg-slate-900 rounded-lg p-4 text-center"
+                >
+                    <h3 class="text-slate-100 font-bold mb-2">Basketball 🏀</h3>
+                    <p class="text-slate-300 text-sm">Playing pickup games</p>
+                </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <p class="text-slate-300 text-sm">
+                    Also enjoy: Reading, Coding, Photography
+                </p>
+            </div>
+        </PortfolioSection>
+
+        <!-- Back to Home -->
+        <div class="w-full max-w-2xl flex justify-center mb-8">
+            <a
+                href="/"
+                class="text-sky-400 hover:text-sky-300 transition-colors font-mono"
+                >← back to home</a
+            >
+        </div>
+
+        <div class="flex-grow"></div>
+        <FooterSection />
+    </main>
+</Layout>
