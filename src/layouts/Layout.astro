@@ -1,6 +1,6 @@
 ---
-import UmamiAnalyticsHead from '../components/UmamiAnalyticsHead.astro';
-import UmamiAnalyticsBody from '../components/UmamiAnalyticsBody.astro';
+import UmamiAnalyticsHead from "../components/UmamiAnalyticsHead.astro";
+import UmamiAnalyticsBody from "../components/UmamiAnalyticsBody.astro";
 
 interface Props {
 	title: string;
@@ -13,7 +13,7 @@ const { title, description, disableDefaultBackground } = Astro.props;
 const isProd = import.meta.env.PROD;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -21,10 +21,28 @@ const isProd = import.meta.env.PROD;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>{title}</title>
 		<UmamiAnalyticsHead />
+		<style>
+			body {
+				font-family: "JetBrains Mono", monospace;
+				line-height: 1.6;
+			}
+			::selection {
+				background: #94a3b8;
+				color: #0f172a;
+			}
+		</style>
 	</head>
-	<body class={!disableDefaultBackground ? "bg-stone-950" : ""}>
+	<body
+		class={!disableDefaultBackground ? "bg-slate-950 text-slate-300" : ""}
+	>
 		<slot />
 		<UmamiAnalyticsBody />
 	</body>
