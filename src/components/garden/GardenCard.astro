@@ -8,16 +8,22 @@ interface Props {
 const { href, title, description } = Astro.props;
 ---
 
-<li class="size-full">
+<li class="size-full group">
     <a
         href={href}
         target="_blank"
-        class="size-full bg-stone-800 hover:bg-stone-700 active:bg-stone-600 transition-all flex flex-col gap-2 rounded-lg p-4"
+        class="size-full border border-slate-800 bg-slate-900 hover:border-sky-400/30 hover:bg-slate-900/50 transition-all flex flex-col gap-2 rounded-lg p-4"
     >
-        <h3 class="text-stone-300 font-bold">{title}</h3>
+        <h3
+            class="text-slate-300 font-bold group-hover:text-sky-300 transition-colors"
+        >
+            {title}
+        </h3>
         {
             description && (
-                <p class="text-stone-400 text-justify">{description}</p>
+                <p class="text-slate-400 group-hover:text-slate-300 transition-colors">
+                    {description}
+                </p>
             )
         }
     </a>
