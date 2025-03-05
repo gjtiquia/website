@@ -3,7 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 import PortfolioSection from "../components/portfolio/PortfolioSection.astro";
+import ProjectSection from "../components/portfolio/ProjectSection.astro";
 import ProjectCard from "../components/portfolio/ProjectCard.astro";
+import TalkCard from "../components/portfolio/TalkCard.astro";
 import SkillTag from "../components/portfolio/SkillTag.astro";
 import { Image } from "astro:assets";
 import profileImage from "../assets/profile-image.jpg";
@@ -62,8 +64,8 @@ import profileImage from "../assets/profile-image.jpg";
         </PortfolioSection>
 
         <!-- Projects -->
-        <PortfolioSection title="Projects">
-            <div class="flex flex-col gap-6">
+        <ProjectSection title="Projects">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 <ProjectCard
                     title="9Cat Saga"
                     subtitle="Co-op Multiplayer Mobile Game • Daytech HK Limited (9Cat Studio)"
@@ -119,6 +121,39 @@ import profileImage from "../assets/profile-image.jpg";
                     ]}
                 />
             </div>
+        </ProjectSection>
+
+        <!-- Talks -->
+        <PortfolioSection title="Talks">
+            <div class="flex flex-col gap-6">
+                <TalkCard
+                    title="Online Multiplayer 101: The Building Blocks of MMOs"
+                    event="Game Dev Happy Hour HK"
+                    year="2024"
+                    youtubeId="IQ-pZxKS1Oc"
+                    points={[
+                        "Presented key concepts and techniques for creating multiplayer game systems",
+                        "Shared experiences from developing the multiplayer functionality for 9Cat Saga",
+                        "Covered networking fundamentals including client-server architecture and P2P models",
+                        "Demonstrated practical synchronization strategies for real-time multiplayer games",
+                        "Provided implementation tips for handling latency and ensuring consistent gameplay",
+                    ]}
+                />
+
+                <TalkCard
+                    title="Building Intelligent NPCs: A Crash Course on NPC AI"
+                    event="Game Dev Happy Hour HK"
+                    year="2024"
+                    youtubeId="hTleipiAEJ8"
+                    points={[
+                        "Explored techniques for creating engaging and dynamic NPC behaviors in games",
+                        "Demonstrated progression from simple state machines to complex behavior trees",
+                        "Showcased methods for balancing AI complexity with performance considerations",
+                        "Presented strategies for designing NPCs that respond believably to player actions",
+                        "Shared implementation approaches that enhance gameplay without excessive CPU usage",
+                    ]}
+                />
+            </div>
         </PortfolioSection>
 
         <!-- Education -->
@@ -147,7 +182,7 @@ import profileImage from "../assets/profile-image.jpg";
 
         <!-- Skills -->
         <PortfolioSection title="Skills">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="flex flex-col gap-4 mb-6">
                 <div
                     class="border border-slate-800 bg-slate-900 rounded-lg p-4"
                 >
@@ -175,10 +210,16 @@ import profileImage from "../assets/profile-image.jpg";
                         <SkillTag name="React" />
                         <SkillTag name="React Native" />
                         <SkillTag name="Next.js" />
+                        <SkillTag name="Astro" />
                         <SkillTag name="Tailwind CSS" />
                         <SkillTag name="Express.js" />
                         <SkillTag name="Hono" />
                         <SkillTag name="Deno" />
+                        <SkillTag name="Fresh" />
+                        <SkillTag name="Socket.io" />
+                        <SkillTag name="WebSockets" />
+                        <SkillTag name="PixiJS" />
+                        <SkillTag name="Vite" />
                         <SkillTag name="PostgreSQL" />
                         <SkillTag name="Docker" />
                     </div>
@@ -192,6 +233,7 @@ import profileImage from "../assets/profile-image.jpg";
                     </h3>
                     <div class="flex flex-wrap gap-2">
                         <SkillTag name="Unity" />
+                        <SkillTag name="Photon Fusion" />
                         <SkillTag name="Multiplayer Development" />
                         <SkillTag name="AI Behaviour" />
                         <SkillTag name="Game Design" />
@@ -212,54 +254,10 @@ import profileImage from "../assets/profile-image.jpg";
                         <SkillTag name="Coaching" />
                         <SkillTag name="Hiring" />
                         <SkillTag name="Problem Solving" />
+                        <SkillTag name="TDD" />
+                        <SkillTag name="Public Speaking" />
                     </div>
                 </div>
-            </div>
-        </PortfolioSection>
-
-        <!-- Volunteer Work -->
-        <PortfolioSection title="Volunteer Experience">
-            <div class="mb-4">
-                <h3 class="text-slate-100 font-bold">Game Dev Happy Hour HK</h3>
-                <p class="text-slate-400 text-sm mb-2">Guest Speaker • 2024</p>
-                <ul class="list-disc pl-5 text-slate-300 space-y-1">
-                    <li>
-                        Gave talks on "Online Multiplayer 101: The Building
-                        Blocks of MMOs" and "Building Intelligent NPCs: A Crash
-                        Course on NPC AI"
-                    </li>
-                </ul>
-            </div>
-
-            <div class="mb-4">
-                <h3 class="text-slate-100 font-bold">Hand Eye Society</h3>
-                <p class="text-slate-400 text-sm mb-2">
-                    Event Volunteer • 2024
-                </p>
-                <ul class="list-disc pl-5 text-slate-300 space-y-1">
-                    <li>
-                        Volunteered at the Hand Eye Society Ball in Toronto as a
-                        front desk receptionist
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="text-slate-100 font-bold">
-                    Gospel Music Group, HKUSUCA
-                </h3>
-                <p class="text-slate-400 text-sm mb-2">
-                    Executive Committee Member • 2020-2021
-                </p>
-                <ul class="list-disc pl-5 text-slate-300 space-y-1">
-                    <li>
-                        Coordinated sharing sessions, workshops and musicals in
-                        various external organizations
-                    </li>
-                    <li>
-                        Managed and maintained instruments and audio equipment
-                    </li>
-                </ul>
             </div>
         </PortfolioSection>
 
