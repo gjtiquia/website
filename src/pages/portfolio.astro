@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 import PortfolioSection from "../components/portfolio/PortfolioSection.astro";
+import ProjectCard from "../components/portfolio/ProjectCard.astro";
+import { Image } from "astro:assets";
+import profileImage from "../assets/profile-image.jpg";
 ---
 
 <Layout title="portfolio💼 - GJ Tiquia" description="my professional portfolio">
@@ -11,14 +14,23 @@ import PortfolioSection from "../components/portfolio/PortfolioSection.astro";
 
         <section class="w-full max-w-2xl pt-4">
             <h1 class="text-slate-100 font-mono font-bold text-center text-2xl">
-                portfolio💼
+                GJ Tiquia - Portfolio💼
             </h1>
         </section>
 
-        <div class="py-6"></div>
+        <div class="py-3"></div>
 
         <!-- Bio Section -->
         <PortfolioSection title="About Me">
+            <div class="flex flex-col items-center mb-6">
+                <Image
+                    src={profileImage}
+                    alt="GJ Tiquia"
+                    width={250}
+                    height={150}
+                    class="rounded-2xl"
+                />
+            </div>
             <p class="text-slate-300 mb-3">
                 Filipino, born and raised in Hong Kong, now living in Canada.
             </p>
@@ -32,104 +44,79 @@ import PortfolioSection from "../components/portfolio/PortfolioSection.astro";
                 "As an engineer, I solve real-world problems. As an artist, code
                 is my canvas and creative output."
             </p>
-            <a
-                href="https://github.com/gjtiquia/resume"
-                target="_blank"
-                class="text-sky-400 hover:text-sky-300 transition-colors text-sm"
-                >View my resume →</a
-            >
+            <div class="pt-8 flex flex-col gap-6">
+                <a
+                    href="/resume"
+                    target="_blank"
+                    class="text-sky-400 hover:text-sky-300 transition-colors text-sm"
+                    >View my resume →</a
+                >
+                <a
+                    href="/resume/download"
+                    target="_blank"
+                    class="text-sky-400 hover:text-sky-300 transition-colors text-sm"
+                    >Download my resume →</a
+                >
+            </div>
         </PortfolioSection>
 
-        <!-- Professional Experience -->
+        <!-- Projects -->
         <PortfolioSection title="Projects">
-            <div class="mb-6">
-                <h3 class="text-slate-100 font-bold">9Cat Saga</h3>
-                <p class="text-slate-400 text-sm mb-2">
-                    Co-op Multiplayer Mobile Game • Daytech HK Limited (9Cat
-                    Studio)
-                </p>
-                <ul class="list-disc pl-5 text-slate-300 space-y-1">
-                    <li>
-                        Developed a top-down isometric 2D shooter game for
-                        mobile with real-time co-op multiplayer functionality
-                    </li>
-                    <li>
-                        Designed and implemented various multiplayer systems
-                        architecture to ensure smooth gameplay experience
-                    </li>
-                    <li>
-                        Established coding standards and best practices,
-                        ensuring software robustness and maintainability
-                    </li>
-                    <li>
-                        Migrated from a singleplayer desktop PC game to a co-op
-                        multiplayer mobile experience
-                    </li>
-                    <li>
-                        Created procedural map generation systems to increase
-                        game replayability
-                    </li>
-                </ul>
-            </div>
+            <div class="flex flex-col gap-6">
+                <ProjectCard
+                    title="9Cat Saga"
+                    subtitle="Co-op Multiplayer Mobile Game • Daytech HK Limited (9Cat Studio)"
+                    youtubeId="FxkjXTxczNI"
+                    points={[
+                        "Developed a top-down isometric 2D shooter game for mobile with real-time co-op multiplayer functionality",
+                        "Designed and implemented various multiplayer systems architecture to ensure smooth gameplay experience",
+                        "Established coding standards and best practices, ensuring software robustness and maintainability",
+                        "Migrated from a singleplayer desktop PC game to a co-op multiplayer mobile experience",
+                        "Created procedural map generation systems to increase game replayability",
+                    ]}
+                />
 
-            <div class="mb-6">
-                <h3 class="text-slate-100 font-bold">
-                    Compensation Claims Calculator
-                </h3>
-                <p class="text-slate-400 text-sm mb-2">
-                    Web Application • EC-PIN (PILnet)
-                </p>
-                <ul class="list-disc pl-5 text-slate-300 space-y-1">
-                    <li>
-                        Developed a web application for calculating employees'
-                        compensation and personal injuries claims
-                    </li>
-                    <li>
-                        Collaborated closely with post-graduate lawyers to
-                        design the calculator's structure and user experience
-                    </li>
-                </ul>
-            </div>
+                <ProjectCard
+                    title="Snake 4D"
+                    subtitle="Mobile Game • Personal Project"
+                    youtubeId="MYzPd2924X4"
+                    videoAspectRatio="9:16"
+                    points={[
+                        "Reimagined the classic Snake game as a four-dimensional minimalistic action arcade game",
+                        "Designed challenging gameplay that progressively introduces players to 3D and 4D movement mechanics",
+                        "Created an intuitive control system that makes complex 4D movement accessible on mobile devices",
+                        "Implemented a level progression system that increases difficulty as players advance",
+                        "Published to Google Play Store, maintaining a 4.0 rating with over 5,000 downloads",
+                    ]}
+                />
 
-            <div class="mb-6">
-                <h3 class="text-slate-100 font-bold">
-                    Interactive 360° Cinematic Experience
-                </h3>
-                <p class="text-slate-400 text-sm mb-2">
-                    Unity Application • Binary Tree Studio / City University of
-                    Hong Kong
-                </p>
-                <ul class="list-disc pl-5 text-slate-300 space-y-1">
-                    <li>
-                        Created immersive 360-degree cinematic experiences using
-                        Unity
-                    </li>
-                    <li>
-                        Integrated generative AI backend with Unity frontend for
-                        enhanced interactivity
-                    </li>
-                    <li>
-                        Developed cross-platform compatibility while ensuring
-                        application robustness
-                    </li>
-                </ul>
-            </div>
+                <ProjectCard
+                    title="Compensation Claims Calculator"
+                    subtitle="Web Application • EC-PIN (PILnet)"
+                    points={[
+                        "Developed a web application for calculating employees' compensation and personal injuries claims",
+                        "Collaborated closely with post-graduate lawyers to design the calculator's structure and user experience",
+                    ]}
+                />
 
-            <div>
-                <h3 class="text-slate-100 font-bold">Educational Web Game</h3>
-                <p class="text-slate-400 text-sm mb-2">
-                    Unity Web Game • HKAHSS
-                </p>
-                <ul class="list-disc pl-5 text-slate-300 space-y-1">
-                    <li>
-                        Built an interactive and educational web game for
-                        secondary school students using Unity
-                    </li>
-                    <li>
-                        Implemented seamless integration between the web
-                        frontend and Unity web frontend
-                    </li>
-                </ul>
+                <ProjectCard
+                    title="Interactive 360° Cinematic Experience"
+                    subtitle="Unity Application • Binary Tree Studio / City University of Hong Kong"
+                    points={[
+                        "Created immersive 360-degree cinematic experiences using Unity",
+                        "Integrated generative AI backend with Unity frontend for enhanced interactivity",
+                        "Developed cross-platform compatibility while ensuring application robustness",
+                    ]}
+                />
+
+                <ProjectCard
+                    title="Educational Web Game"
+                    subtitle="Unity Web Game • HKAHSS"
+                    points={[
+                        "Built an interactive and educational web game for secondary school students using Unity",
+                        "Implemented seamless integration between the web frontend and Unity web frontend",
+                    ]}
+                />
             </div>
         </PortfolioSection>
 
