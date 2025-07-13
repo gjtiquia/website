@@ -18,6 +18,13 @@ This project is a personal website built with [Astro](https://astro.build/), a m
     - `pnpm preview`: Previews the production build locally.
     - `pnpm astro`: Provides access to the Astro CLI.
 
+## Design System
+
+This project uses the [Rosé Pine Moon](https://rosepinetheme.com/palette/moon) color palette and the [Fira Mono](https://fonts.google.com/specimen/Fira+Mono) font.
+
+-   **Color Palette:** The specific color palette settings are defined in `tailwind.config.js`. For code highlighting, the `rose-pine-dawn` theme is used, which is configured in `astro.config.mjs`.
+-   **Font:** The Fira Mono font is defined in `src/layouts/Layout.astro` and `tailwind.config.js`.
+
 ## User Preferences
 
 [Note any specific user preferences for interacting with the agent in this project.]
