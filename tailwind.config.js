@@ -3,6 +3,9 @@ export default {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ["Fira Mono", "monospace"],
+            },
             colors: {
                 base: "#232136",
                 surface: "#2a273f",
