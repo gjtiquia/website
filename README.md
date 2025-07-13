@@ -5,7 +5,7 @@
 ```bash
 
 # install dependencies
-pnpm i 
+pnpm i
 
 # dev server
 pnpm run deb
@@ -16,4 +16,3 @@ pnpm run build
 # preview production build
 pnpm run preview
 ```
-

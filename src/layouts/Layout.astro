@@ -3,9 +3,9 @@ import UmamiAnalyticsHead from "../components/UmamiAnalyticsHead.astro";
 import UmamiAnalyticsBody from "../components/UmamiAnalyticsBody.astro";
 
 interface Props {
-	title: string;
-	description: string;
-	disableDefaultBackground?: boolean;
+    title: string;
+    description: string;
+    disableDefaultBackground?: boolean;
 }
 
 const { title, description, disableDefaultBackground } = Astro.props;
@@ -15,57 +15,57 @@ const isProd = import.meta.env.PROD;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
-			rel="stylesheet"
-		/>
-		<title>{title}</title>
-		<UmamiAnalyticsHead />
-		<style>
-			body {
-				font-family: "JetBrains Mono", monospace;
-				line-height: 1.6;
-			}
-			::selection {
-				background: #94a3b8;
-				color: #0f172a;
-			}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <title>{title}</title>
+        <UmamiAnalyticsHead />
+        <style>
+            body {
+                font-family: "JetBrains Mono", monospace;
+                line-height: 1.6;
+            }
+            ::selection {
+                background: #94a3b8;
+                color: #0f172a;
+            }
 
-			/* Scrollbar styling */
-			/* For Webkit browsers (Chrome, Safari, Edge) */
-			::-webkit-scrollbar {
-				width: 10px;
-			}
-			::-webkit-scrollbar-track {
-				background: #1e293b; /* slate-800 */
-			}
-			::-webkit-scrollbar-thumb {
-				background: #475569; /* slate-600 */
-				border-radius: 4px;
-			}
-			::-webkit-scrollbar-thumb:hover {
-				background: #64748b; /* slate-500 */
-			}
+            /* Scrollbar styling */
+            /* For Webkit browsers (Chrome, Safari, Edge) */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #1e293b; /* slate-800 */
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #475569; /* slate-600 */
+                border-radius: 4px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #64748b; /* slate-500 */
+            }
 
-			/* For Firefox */
-			* {
-				scrollbar-color: #475569 #1e293b; /* thumb track */
-				scrollbar-width: thin;
-			}
-		</style>
-	</head>
-	<body
-		class={!disableDefaultBackground ? "bg-slate-950 text-slate-300" : ""}
-	>
-		<slot />
-		<UmamiAnalyticsBody />
-	</body>
+            /* For Firefox */
+            * {
+                scrollbar-color: #475569 #1e293b; /* thumb track */
+                scrollbar-width: thin;
+            }
+        </style>
+    </head>
+    <body
+        class={!disableDefaultBackground ? "bg-slate-950 text-slate-300" : ""}
+    >
+        <slot />
+        <UmamiAnalyticsBody />
+    </body>
 </html>

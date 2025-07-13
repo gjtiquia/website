@@ -4,45 +4,51 @@ import UmamiAnalyticsBody from "../../components/UmamiAnalyticsBody.astro";
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-		<meta name="description" content="Download Resume - GJ Tiquia" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-    <title>Download Resume - GJ Tiquia</title>
-    <UmamiAnalyticsHead />
-  </head>
- <body class="h-dvh flex flex-col justify-center items-center bg-stone-950 text-stone-50">
-    <p>Downloading <i>Resume_GJTiquia.pdf</i>...</p>
-    <p>Click
-      <a 
-        id="download-anchor"
-        target="_blank"
-        href="https://github.com/gjtiquia/resume/releases"
-        class="text-blue-500 underline"
-      >here</a>
-      if download does not start automatically
-    </p>
-    <script> 
-      // Fetch on client-side because site is SSG
-      async function redirectAsync() {
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Download Resume - GJ Tiquia" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Download Resume - GJ Tiquia</title>
+        <UmamiAnalyticsHead />
+    </head>
+    <body
+        class="h-dvh flex flex-col justify-center items-center bg-stone-950 text-stone-50"
+    >
+        <p>Downloading <i>Resume_GJTiquia.pdf</i>...</p>
+        <p>
+            Click
+            <a
+                id="download-anchor"
+                target="_blank"
+                href="https://github.com/gjtiquia/resume/releases"
+                class="text-blue-500 underline">here</a
+            >
+            if download does not start automatically
+        </p>
+        <script>
+            // Fetch on client-side because site is SSG
+            async function redirectAsync() {
+                const response = await fetch(
+                    "https://api.github.com/repos/gjtiquia/resume/releases/latest",
+                );
+                const json = await response.json();
 
-        const response = await fetch("https://api.github.com/repos/gjtiquia/resume/releases/latest")
-        const json = await response.json();
+                // Assumes there is always 1 asset uploaded
+                const downloadURL = json.assets[0].browser_download_url;
 
-        // Assumes there is always 1 asset uploaded
-        const downloadURL = json.assets[0].browser_download_url;
+                const anchor = document.getElementById(
+                    "download-anchor",
+                ) as HTMLAnchorElement;
+                anchor.target = "_self";
+                anchor.href = downloadURL;
 
-        const anchor = document.getElementById("download-anchor") as HTMLAnchorElement;
-        anchor.target = "_self";
-        anchor.href = downloadURL;
-        
-        console.log("Downloading from", downloadURL);
-        document.location.href = downloadURL;
-      }
-      redirectAsync();
-    </script>
-    <UmamiAnalyticsBody/>
- </body>
+                console.log("Downloading from", downloadURL);
+                document.location.href = downloadURL;
+            }
+            redirectAsync();
+        </script>
+        <UmamiAnalyticsBody />
+    </body>
 </html>
