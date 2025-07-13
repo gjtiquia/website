@@ -12,16 +12,16 @@ const { href, title, description } = Astro.props;
     <a
         href={href}
         target="_blank"
-        class="size-full border border-slate-800 bg-slate-900 hover:border-sky-400/30 hover:bg-slate-900/50 transition-all flex flex-col gap-2 rounded-lg p-4"
+        class="size-full border border-surface bg-surface hover:border-iris/30 hover:bg-surface/50 transition-all flex flex-col gap-2 rounded-lg p-4"
     >
         <h3
-            class="text-slate-300 font-bold group-hover:text-sky-300 transition-colors"
+            class="text-text font-bold group-hover:text-foam transition-colors"
         >
             {title}
         </h3>
         {
             description && (
-                <p class="text-slate-400 group-hover:text-slate-300 transition-colors">
+                <p class="text-subtle group-hover:text-text transition-colors">
                     {description}
                 </p>
             )

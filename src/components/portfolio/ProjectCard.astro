@@ -19,9 +19,9 @@ const {
 const aspectRatioPadding = videoAspectRatio === "9:16" ? "177.78%" : "56.25%";
 ---
 
-<div class="border border-slate-800 bg-slate-900 rounded-lg p-6">
-    <h3 class="text-sky-400 font-bold text-xl mb-1">{title}</h3>
-    <p class="text-slate-400 text-sm mb-3">{subtitle}</p>
+<div class="border border-surface bg-surface rounded-lg p-6">
+    <h3 class="text-iris font-bold text-xl mb-1">{title}</h3>
+    <p class="text-subtle text-sm mb-3">{subtitle}</p>
 
     {
         youtubeId && (
@@ -45,7 +45,7 @@ const aspectRatioPadding = videoAspectRatio === "9:16" ? "177.78%" : "56.25%";
         )
     }
 
-    <ul class="list-disc pl-5 text-slate-300 space-y-4">
+    <ul class="list-disc pl-5 text-text space-y-4">
         {points.map((point) => <li>{point}</li>)}
     </ul>
 </div>

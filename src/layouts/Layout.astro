@@ -35,8 +35,8 @@ const isProd = import.meta.env.PROD;
                 line-height: 1.6;
             }
             ::selection {
-                background: #94a3b8;
-                color: #0f172a;
+                background: #393552; /* overlay */
+                color: #e0def4; /* text */
             }
 
             /* Scrollbar styling */
@@ -45,25 +45,25 @@ const isProd = import.meta.env.PROD;
                 width: 10px;
             }
             ::-webkit-scrollbar-track {
-                background: #1e293b; /* slate-800 */
+                background: #2a273f; /* surface */
             }
             ::-webkit-scrollbar-thumb {
-                background: #475569; /* slate-600 */
+                background: #393552; /* overlay */
                 border-radius: 4px;
             }
             ::-webkit-scrollbar-thumb:hover {
-                background: #64748b; /* slate-500 */
+                background: #6e6a86; /* muted */
             }
 
             /* For Firefox */
             * {
-                scrollbar-color: #475569 #1e293b; /* thumb track */
+                scrollbar-color: #393552 #2a273f; /* thumb track */
                 scrollbar-width: thin;
             }
         </style>
     </head>
     <body
-        class={!disableDefaultBackground ? "bg-slate-950 text-slate-300" : ""}
+        class={!disableDefaultBackground ? "bg-base text-text" : ""}
     >
         <slot />
         <UmamiAnalyticsBody />
