@@ -14,9 +14,6 @@ const {
     youtubeId,
     videoAspectRatio = "16:9",
 } = Astro.props;
-
-// Calculate padding based on aspect ratio
-const aspectRatioPadding = videoAspectRatio === "9:16" ? "177.78%" : "56.25%";
 ---
 
 <div class="border border-surface bg-surface rounded-lg p-6">
@@ -36,7 +33,7 @@ const aspectRatioPadding = videoAspectRatio === "9:16" ? "177.78%" : "56.25%";
                     class="absolute top-0 left-0 w-full h-full"
                     src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&rel=0`}
                     title={`${title} YouTube video`}
-                    frameborder="0"
+                    style="border: none;"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                 />

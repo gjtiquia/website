@@ -8,16 +8,18 @@
 <script>
     import { themes } from "../themes";
     const toggleButton = document.getElementById("theme-toggle");
-    const lightIcon = toggleButton.querySelector(".light-icon");
-    const darkIcon = toggleButton.querySelector(".dark-icon");
+    const lightIcon = toggleButton?.querySelector(".light-icon");
+    const darkIcon = toggleButton?.querySelector(".dark-icon");
 
-    const setThemeUI = (theme) => {
-        if (theme === 'light') {
-            lightIcon.classList.remove("hidden");
-            darkIcon.classList.add("hidden");
-        } else {
-            lightIcon.classList.add("hidden");
-            darkIcon.classList.remove("hidden");
+    const setThemeUI = (theme: string) => {
+        if (lightIcon && darkIcon) {
+            if (theme === 'light') {
+                lightIcon.classList.remove("hidden");
+                darkIcon.classList.add("hidden");
+            } else {
+                lightIcon.classList.add("hidden");
+                darkIcon.classList.remove("hidden");
+            }
         }
     };
 
@@ -42,7 +44,9 @@
         setThemeUI(newTheme);
     };
 
-    toggleButton.addEventListener("click", toggleTheme);
+    if (toggleButton) {
+        toggleButton.addEventListener("click", toggleTheme);
+    }
 
     // Set initial UI
     const initialTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: light)").matches ? 'light' : 'dark');
