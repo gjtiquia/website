@@ -10,7 +10,7 @@ This project is a personal website built with [Astro](https://astro.build/), a m
 
 - **Conventions:** This project uses [Prettier](https://prettier.io/) for code formatting. Please adhere to the formatting rules defined in the `.prettierrc` file.
 - **Dependencies:** The primary dependencies are [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). Manage dependencies using `pnpm`.
-- **Testing:** There is no dedicated testing framework in this project. Instead, it relies on [Astro's built-in type checking (`astro check`)](https://docs.astro.build/en/guides/typescript/#type-checking-in-astro) to ensure code quality. To run the type checker, use the `pnpm run build` command.
+- **Testing:** There is no dedicated testing framework in this project. Instead, it relies on [Astro's built-in type checking (`astro check`)](https://docs.astro.build/en/guides/typescript/#type-checking-in-astro) to ensure code quality.
 - **Commands:**
     - `pnpm dev`: Starts the development server.
     - `pnpm start`: Alias for `pnpm dev`.
@@ -27,4 +27,4 @@ This project uses the [Rosé Pine Moon](https://rosepinetheme.com/palette/moon) 
 
 ## User Preferences
 
-[Note any specific user preferences for interacting with the agent in this project.]
+The user will handle all git commits. Do not commit changes unless explicitly instructed.

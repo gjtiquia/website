@@ -1,4 +1,5 @@
 ---
+import { themes } from "../themes";
 import UmamiAnalyticsHead from "../components/UmamiAnalyticsHead.astro";
 import UmamiAnalyticsBody from "../components/UmamiAnalyticsBody.astro";
 
@@ -29,35 +30,59 @@ const isProd = import.meta.env.PROD;
         />
         <title>{title}</title>
         <UmamiAnalyticsHead />
+        <script is:inline set:html={`
+            const themes = ${JSON.stringify(themes)};
+            const getTheme = () => {
+                const theme = localStorage.getItem("theme");
+                if (theme && (theme === 'light' || theme === 'dark')) {
+                    return theme;
+                }
+                return window.matchMedia("(prefers-color-scheme: light)").matches ? 'light' : 'dark';
+            };
+            const setTheme = (theme) => {
+                const root = document.documentElement;
+                const themeColors = themes[theme];
+                for (const [key, value] of Object.entries(themeColors)) {
+                    root.style.setProperty('--theme-' + key, value);
+                }
+                if (theme === 'light') {
+                    root.classList.add('light');
+                } else {
+                    root.classList.remove('light');
+                }
+                localStorage.setItem("theme", theme);
+            };
+            const theme = getTheme();
+            setTheme(theme);
+            document.addEventListener('astro:after-swap', () => setTheme(getTheme()));
+        `} />
         <style>
             body {
                 font-family: "Fira Mono", monospace;
                 line-height: 1.6;
             }
             ::selection {
-                background: #393552; /* overlay */
-                color: #e0def4; /* text */
+                background: var(--theme-overlay);
+                color: var(--theme-text);
             }
-
             /* Scrollbar styling */
             /* For Webkit browsers (Chrome, Safari, Edge) */
             ::-webkit-scrollbar {
                 width: 10px;
             }
             ::-webkit-scrollbar-track {
-                background: #2a273f; /* surface */
+                background: var(--theme-surface);
             }
             ::-webkit-scrollbar-thumb {
-                background: #393552; /* overlay */
+                background: var(--theme-overlay);
                 border-radius: 4px;
             }
             ::-webkit-scrollbar-thumb:hover {
-                background: #6e6a86; /* muted */
+                background: var(--theme-muted);
             }
-
             /* For Firefox */
             * {
-                scrollbar-color: #393552 #2a273f; /* thumb track */
+                scrollbar-color: var(--theme-overlay) var(--theme-surface); /* thumb track */
                 scrollbar-width: thin;
             }
         </style>

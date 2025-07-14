@@ -1,0 +1,55 @@
+---
+---
+<button id="theme-toggle" class="text-sm text-subtle hover:text-text transition-colors">
+    <span class="light-icon hidden text-xl">☀️</span>
+    <span class="dark-icon hidden text-xl">🌙</span>
+</button>
+
+<script>
+    import { themes } from "../themes";
+    const toggleButton = document.getElementById("theme-toggle");
+    const lightIcon = toggleButton.querySelector(".light-icon");
+    const darkIcon = toggleButton.querySelector(".dark-icon");
+
+    const setThemeUI = (theme) => {
+        if (theme === 'light') {
+            lightIcon.classList.remove("hidden");
+            darkIcon.classList.add("hidden");
+        } else {
+            lightIcon.classList.add("hidden");
+            darkIcon.classList.remove("hidden");
+        }
+    };
+
+    const toggleTheme = () => {
+        const currentTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: light)").matches ? 'light' : 'dark');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        const root = document.documentElement;
+        if (newTheme === 'light') {
+            root.classList.add('light');
+        } else {
+            root.classList.remove('light');
+        }
+
+        // We need to manually update the CSS variables because the layout script is not re-run on client-side navigation
+        const themeColors = themes[newTheme];
+        for (const [key, value] of Object.entries(themeColors)) {
+            root.style.setProperty('--theme-' + key, value);
+        }
+
+        localStorage.setItem("theme", newTheme);
+        setThemeUI(newTheme);
+    };
+
+    toggleButton.addEventListener("click", toggleTheme);
+
+    // Set initial UI
+    const initialTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: light)").matches ? 'light' : 'dark');
+    setThemeUI(initialTheme);
+
+    document.addEventListener('astro:after-swap', () => {
+        const theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: light)").matches ? 'light' : 'dark');
+        setThemeUI(theme);
+    });
+</script>
