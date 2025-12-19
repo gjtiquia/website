@@ -8,7 +8,7 @@
 pnpm i
 
 # dev server
-pnpm run deb
+pnpm run dev
 
 # build for production
 pnpm run build
