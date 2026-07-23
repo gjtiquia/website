@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
@@ -7,7 +6,6 @@ import GitHubLogo from "../components/Logos/GitHubLogo.astro";
 import LinkedInLogo from "../components/Logos/LinkedInLogo.astro";
 import TwitterLogo from "../components/Logos/TwitterLogo.astro";
 import HomeCard from "../components/home/HomeCard.astro";
-import qrcode from "../assets/gjtiquia_dot_com.png";
 
 // TODO : portfolio (can do much much later)
 /* portfolio
@@ -88,23 +86,7 @@ and probably better descriptions so it'll turn up nicer in Google Search results
             </ul>
         </section>
 
-        <section
-            class="mt-6 sm:mt-16 mb-8 border border-surface max-w-sm flex flex-col items-center gap-4 px-8 py-6 rounded-lg"
-        >
-            <p class="text-subtle text-sm">scan to visit this site</p>
-            <Image
-                class="rounded-lg border border-surface p-2"
-                src={qrcode}
-                alt="QR Code for GJTiquia.com"
-            />
-            <a
-                href="/"
-                class="text-iris hover:text-foam transition-colors text-sm"
-                >gjtiquia.com</a
-            >
-        </section>
-
-        <div class="sm:py-3"></div>
+        <div class="sm:py-3 flex-1"></div>
         <FooterSection />
     </main>
 </Layout>
