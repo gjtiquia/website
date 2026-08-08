@@ -1,6 +1,6 @@
 export const themes = {
     dark: {
-        base: "35 33 54",
+        background: "35 33 54",
         surface: "42 39 63",
         overlay: "57 53 82",
         muted: "110 106 134",
@@ -17,7 +17,7 @@ export const themes = {
         highlightHigh: "82 79 103",
     },
     light: {
-        base: "250 244 237",
+        background: "250 244 237",
         surface: "255 250 243",
         overlay: "242 233 225",
         muted: "152 147 165",

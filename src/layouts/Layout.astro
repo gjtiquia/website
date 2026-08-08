@@ -86,7 +86,7 @@ const { title, description, disableDefaultBackground } = Astro.props;
         </style>
     </head>
     <body
-        class={!disableDefaultBackground ? "bg-base text-text" : ""}
+        class={!disableDefaultBackground ? "bg-background text-text" : ""}
     >
         <slot />
         <UmamiAnalyticsBody />

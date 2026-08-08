@@ -8,7 +8,7 @@ export default {
                 sans: ["Fira Mono", "monospace"],
             },
             colors: {
-                base: "rgb(var(--theme-base) / <alpha-value>)",
+                background: "rgb(var(--theme-background) / <alpha-value>)",
                 surface: "rgb(var(--theme-surface) / <alpha-value>)",
                 overlay: "rgb(var(--theme-overlay) / <alpha-value>)",
                 muted: "rgb(var(--theme-muted) / <alpha-value>)",
