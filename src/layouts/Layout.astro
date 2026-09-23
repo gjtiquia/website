@@ -1,7 +1,5 @@
 ---
 import { themes } from "../themes";
-import UmamiAnalyticsHead from "../components/UmamiAnalyticsHead.astro";
-import UmamiAnalyticsBody from "../components/UmamiAnalyticsBody.astro";
 
 interface Props {
     title: string;
@@ -27,7 +25,6 @@ const { title, description, disableDefaultBackground } = Astro.props;
             rel="stylesheet"
         />
         <title>{title}</title>
-        <UmamiAnalyticsHead />
         <script is:inline set:html={`
             const themes = ${JSON.stringify(themes)};
             const getTheme = () => {
@@ -89,6 +86,5 @@ const { title, description, disableDefaultBackground } = Astro.props;
         class={!disableDefaultBackground ? "bg-background text-text" : ""}
     >
         <slot />
-        <UmamiAnalyticsBody />
     </body>
 </html>

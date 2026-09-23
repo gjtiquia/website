@@ -1,7 +1,5 @@
 ---
 import "../styles/global.css";
-import UmamiAnalyticsHead from "./UmamiAnalyticsHead.astro";
-import UmamiAnalyticsBody from "./UmamiAnalyticsBody.astro";
 
 interface Props {
     title: string;
@@ -21,7 +19,6 @@ const { title, description, url } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
-        <UmamiAnalyticsHead />
         <slot name="head" />
     </head>
     <body
@@ -33,7 +30,6 @@ const { title, description, url } = Astro.props;
                 >here</a
             >
         </p>
-        <UmamiAnalyticsBody />
         <slot name="body" />
     </body>
 </html>
